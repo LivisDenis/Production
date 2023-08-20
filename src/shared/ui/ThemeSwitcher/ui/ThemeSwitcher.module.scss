@@ -1,0 +1,12 @@
+.ThemeSwitcher {
+  &light {
+    path {
+      fill: #191919;
+    }
+  }
+  &dark {
+    path {
+      fill: #eaeaea;
+    }
+  }
+}
