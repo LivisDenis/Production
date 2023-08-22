@@ -1,23 +1,23 @@
-import React, {useMemo, useState} from 'react';
-import {Theme, ThemeContext} from "../lib/ThemeContext";
+import React, { useMemo, useState } from 'react';
+import { Theme, ThemeContext } from '../lib/ThemeContext';
 
-interface ThemeProvider{
+interface ThemeProviderProps {
     children: React.ReactNode
 }
 
-const defaultTheme = localStorage.getItem('theme') as Theme || Theme.LIGHT
+const defaultTheme = localStorage.getItem('theme') as Theme || Theme.LIGHT;
 
-export const ThemeProvider = ({children}: ThemeProvider) => {
-    const [theme, setTheme] = useState<Theme>(defaultTheme)
+export const ThemeProvider = ({ children }: ThemeProviderProps) => {
+  const [theme, setTheme] = useState<Theme>(defaultTheme);
 
-    const defaultProps = useMemo(() => ({
-        theme: theme,
-        setTheme: setTheme,
-    }), [theme])
+  const defaultProps = useMemo(() => ({
+    theme,
+    setTheme,
+  }), [theme]);
 
-    return (
-        <ThemeContext.Provider value={defaultProps}>
-            {children}
-        </ThemeContext.Provider>
-    );
+  return (
+    <ThemeContext.Provider value={defaultProps}>
+      {children}
+    </ThemeContext.Provider>
+  );
 };
