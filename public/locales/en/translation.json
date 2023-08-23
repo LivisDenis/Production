@@ -3,5 +3,7 @@
     "Английский": "English",
   "Перевод пример": "Translate example",
   "Язык": "English",
-  "Страница не найдена": "Page not found"
+  "Страница не найдена": "Page not found",
+  "Произошла ошибка": "An error has occurred",
+  "Перезагрузить страницу": "Reload page"
 }
