@@ -34,10 +34,18 @@ module.exports = {
     'no-unused-vars': 'warn',
     'no-underscore-dangle': 'off',
     'react/react-in-jsx-scope': 'off',
-    'i18next/no-literal-string': ['error', { markupOnly: true, ignoreAttribute: ['fillRule'] }],
+    'i18next/no-literal-string': ['error', { markupOnly: true, ignoreAttribute: ['fillRule', 'data-testid'] }],
     'max-len': ['error', { code: 130, ignoreComments: true }],
   },
   globals: {
     __IS_DEV__: true,
   },
+  overrides: [
+    {
+      files: ['**/src/**/*.test.{ts,tsx}'],
+      rules: {
+        'i18next/no-literal-string': 'off',
+      },
+    },
+  ],
 };

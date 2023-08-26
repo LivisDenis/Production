@@ -1,9 +1,9 @@
+import { classNames } from 'shared/lib/classNames/classNames';
+import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink';
+import { RoutePath } from 'shared/config/routeConfig/routeConfig';
+import { ThemeSwitcher } from 'shared/ui/ThemeSwitcher';
+import { LangSwitcher } from 'shared/ui/LangSwitcher';
 import cls from './Navbar.module.scss';
-import { classNames } from '@/shared/lib/classNames/classNames';
-import { AppLink, AppLinkTheme } from '@/shared/ui/AppLink/AppLink';
-import { RoutePath } from '@/shared/config/routeConfig/routeConfig';
-import { ThemeSwitcher } from '@/shared/ui/ThemeSwitcher';
-import { LangSwitcher } from '@/shared/ui/LangSwitcher';
 
 interface NavbarProps {
     className?: string
