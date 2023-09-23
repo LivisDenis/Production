@@ -11,9 +11,11 @@ interface ThemeSwitcherProps {
 export const ThemeSwitcher = ({ className }: ThemeSwitcherProps) => {
   const { theme, toggleTheme } = useTheme();
 
+  const themeFill = theme === Theme.DARK ? '#FDFDFD' : '#252525';
+
   return (
     <Button onClick={toggleTheme} className={classNames(cls.ThemeSwitcher, {}, [className, theme])}>
-      <ThemeIcon fill={theme === Theme.DARK ? '#252525' : '#FDFDFD'} fillRule="evenodd" />
+      <ThemeIcon fill={themeFill} fillRule="evenodd" />
     </Button>
   );
 };

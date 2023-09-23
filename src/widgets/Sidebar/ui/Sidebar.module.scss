@@ -1,5 +1,6 @@
 .Sidebar {
-  height: calc(100vh - 60px);
+  padding: 15px;
+  height: calc(100vh - 30px);
   width: var(--sidebar-width);
   background-color: var(--inverted-bg-color);
   transition: width 0.2s;
@@ -7,4 +8,20 @@
 
 .collapsed {
   width: var(--sidebar-width-collapsed);
+}
+
+.links {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.item {
+  display: flex;
+  align-items: end;
+}
+
+.icon {
+  margin-right: 8px;
+  fill: #FDFDFD;
 }
