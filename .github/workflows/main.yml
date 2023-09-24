@@ -25,21 +25,21 @@ jobs:
 
       - name: Production build project
         run: npm run build:prod
-        if(): always
+        if(): always()
       - name: Linting typescript
         run: npm run lint:ts
-        if(): always
+        if(): always()
       - name: Linting css
         run: npm run lint:scss
-        if(): always
+        if(): always()
       - name: Unit testing
         run: npm run test:unit
-        if(): always
+        if(): always()
       - name: Build storybook
         run: npm run storybook:build
-        if(): always
+        if(): always()
       - name: Update build storybook
         run: npx loki update --reactUri="file:./storybook-static"
-        if(): always
+        if(): always()
       - name: Screenshot testing
         run: npm run test:ui:ci
