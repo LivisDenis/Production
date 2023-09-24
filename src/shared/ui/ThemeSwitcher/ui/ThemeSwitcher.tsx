@@ -14,7 +14,7 @@ export const ThemeSwitcher = ({ className }: ThemeSwitcherProps) => {
   const themeFill = theme === Theme.DARK ? '#FDFDFD' : '#252525';
 
   return (
-    <Button onClick={toggleTheme} className={classNames(cls.ThemeSwitcher, {}, [className, theme])}>
+    <Button onClick={toggleTheme} className={classNames(cls.ThemeSwitcher, {}, [className])}>
       <ThemeIcon fill={themeFill} fillRule="evenodd" />
     </Button>
   );
