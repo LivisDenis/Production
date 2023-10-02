@@ -1,8 +1,22 @@
 .app.dark {
   --bg-color: #252525;
-  --inverted-bg-color: #24484E;
+  --main-color: #24484E;
+  --secondary-color: #183A40;
+
+  // font
+  --accent-main-color: #F15A3B;
+  --accent-secondary-color: #FB7A7A;
   --main-font-color: #FDFDFD;
-  --secondary-font-color: #929292;
-  --inverted-primary-color: #191919;
-  --inverted-secondary-color: #717171;
+  --inverted-main-font-color: #191919;
+  --add-font-color: #929292;
+
+  // input
+  --input-light-color: #717171;
+  --input-gray-color: #606060;
+  --input-dark-color: #454545;
+
+  // button
+  --button-medium-color: #363636;
+  --button-gray-color: #252525;
+  --button-dark-color: #191919;
 }

@@ -1,4 +1,4 @@
-import { ReactNode } from 'react';
+import { ReactNode, useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
 
 interface PortalProps {
@@ -7,10 +7,17 @@ interface PortalProps {
 }
 
 export const Portal = (props: PortalProps) => {
+  const node = document.querySelectorAll('.app');
   const {
     children,
-    domNode = document.getElementById('root'),
+    domNode = node[1] ?? node[0],
   } = props;
 
-  return createPortal(children, domNode);
+  const [domReady, setDomReady] = useState(false);
+
+  useEffect(() => {
+    setDomReady(true);
+  }, []);
+
+  return domReady ? createPortal(children, domNode) : null;
 };

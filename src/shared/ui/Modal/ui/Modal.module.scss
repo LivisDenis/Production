@@ -16,7 +16,8 @@
 }
 
 .content {
-  background-color: var(--bg-color);
+  background: var(--bg-color);
+  color: var(--main-font-color);
   padding: 30px;
   border-radius: 20px;
   transition: 0.2s transform;

@@ -1,8 +1,22 @@
 .app.light {
   --bg-color: #FDFDFD;
-  --inverted-bg-color: #365B61;
+  --main-color: #24484E;
+  --secondary-color: #365B61;
+
+  // font
+  --accent-main-color: #F15A3B;
+  --accent-secondary-color: #C83939;
   --main-font-color: #191919;
-  --secondary-font-color: #929292;
-  --inverted-primary-color: #FDFDFD;
-  --inverted-secondary-color: #c0c0c0;
+  --inverted-main-font-color: #FDFDFD;
+  --add-font-color: #929292;
+
+  // input
+  --input-light-color: #F3F1F1;
+  --input-gray-color: #606060;
+  --input-dark-color: #454545;
+
+  // button
+  --button-medium-color: #40808A;
+  --button-gray-color: #365B61;
+  --button-dark-color: #183A40;
 }
