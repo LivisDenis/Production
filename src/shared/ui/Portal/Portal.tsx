@@ -7,10 +7,9 @@ interface PortalProps {
 }
 
 export const Portal = (props: PortalProps) => {
-  const node = document.querySelectorAll('.app');
   const {
     children,
-    domNode = node[1] ?? node[0],
+    domNode = document.body,
   } = props;
 
   const [domReady, setDomReady] = useState(false);
