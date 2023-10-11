@@ -9,17 +9,23 @@ import cls from './Modal.module.scss';
 interface ModalProps {
     className?: string
     children: ReactNode
-    isOpen?: boolean
     onClose?: () => void
+    isOpen?: boolean
+    lazy?: boolean
 }
 
 const ANIMATION_DELAY = 150;
 
 export const Modal = (props: ModalProps) => {
   const {
-    className, children, onClose, isOpen,
+    className,
+    children,
+    onClose,
+    isOpen,
+    lazy,
   } = props;
   const [isClosing, setIsClosing] = useState(false);
+  const [isMounded, setIsMounded] = useState(false);
   const timerRef = useRef<ReturnType<typeof setTimeout>>();
   const { theme } = useTheme();
 
@@ -45,6 +51,7 @@ export const Modal = (props: ModalProps) => {
 
   useEffect(() => {
     if (isOpen) {
+      setIsMounded(true);
       window.addEventListener('keydown', onKeyDown);
     }
 
@@ -54,10 +61,20 @@ export const Modal = (props: ModalProps) => {
     };
   }, [isOpen, onKeyDown]);
 
+  useEffect(() => {
+    if (isOpen) {
+      setIsMounded(true);
+    }
+  }, [isOpen]);
+
   const mods: Record<string, boolean> = {
     [cls.opened]: isOpen,
     [cls.closing]: isClosing,
   };
+
+  if (lazy && !isMounded) {
+    return null;
+  }
 
   return (
     <Portal>
