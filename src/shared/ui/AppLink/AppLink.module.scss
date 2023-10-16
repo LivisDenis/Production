@@ -4,12 +4,16 @@
   text-decoration: none;
 
   &:hover {
-    color: var(--inverted-primary-color);
+    color: var(--add-font-color);
   }
 }
 
-.primary {
+.normal {
   color: #FDFDFD;
+}
+
+.primary {
+  color: var(--main-font-color);
 }
 
 .secondary {

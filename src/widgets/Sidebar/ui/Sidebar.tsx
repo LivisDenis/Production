@@ -16,13 +16,13 @@ export const Sidebar = ({ className }: SidebarProps) => {
   return (
     <div data-testid="sidebar" className={classNames(cls.Sidebar, {}, [className])}>
       <div className={cls.links}>
-        <AppLink className={cls.item} to={RoutePath.main} theme={AppLinkTheme.PRIMARY}>
+        <AppLink className={cls.item} to={RoutePath.main} theme={AppLinkTheme.NORMAL}>
           <MainIcon className={cls.icon} />
           <span className={cls.link}>
             {t('Главная')}
           </span>
         </AppLink>
-        <AppLink className={cls.item} to={RoutePath.about} theme={AppLinkTheme.PRIMARY}>
+        <AppLink className={cls.item} to={RoutePath.about} theme={AppLinkTheme.NORMAL}>
           <AboutIcon className={cls.icon} />
           <span className={cls.link}>
             {t('О сайте')}

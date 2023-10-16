@@ -4,6 +4,7 @@ import { ReactNode } from 'react';
 import cls from './AppLink.module.scss';
 
 export enum AppLinkTheme {
+    NORMAL = 'normal',
     PRIMARY = 'primary',
     SECONDARY = 'secondary',
     RED = 'red'
