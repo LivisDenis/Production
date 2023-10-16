@@ -29,11 +29,13 @@ export const Button = (props: ButtonProps) => {
     theme,
     size = ButtonSize.M,
     square,
+    disabled,
     ...otherProps
   } = props;
 
   const mods = {
     [cls.square]: square,
+    [cls.disabled]: disabled,
   };
 
   return (
