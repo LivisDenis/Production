@@ -19,6 +19,14 @@ export const Navbar = ({ className }: NavbarProps) => {
   const authData = useSelector(getAuthData);
   const dispatch = useDispatch();
 
+  const onCloseModal = () => {
+    setIsOpen(false);
+  };
+
+  const onOpenModal = () => {
+    setIsOpen(true);
+  };
+
   const onLogout = () => {
     dispatch(userActions.logout());
   };
@@ -28,8 +36,8 @@ export const Navbar = ({ className }: NavbarProps) => {
       <div className={cls.links}>
         {!authData && (
         <>
-          <LoginModal isOpen={isOpen} onClose={() => setIsOpen(false)} />
-          <Button onClick={() => setIsOpen(true)} theme={ButtonTheme.BACKGROUND}>{t('Войти')}</Button>
+          {isOpen && <LoginModal isOpen={isOpen} onClose={onCloseModal} />}
+          <Button onClick={onOpenModal} theme={ButtonTheme.BACKGROUND}>{t('Войти')}</Button>
         </>
         )}
         {authData && <Button onClick={onLogout} theme={ButtonTheme.BACKGROUND}>{t('Выйти')}</Button>}
