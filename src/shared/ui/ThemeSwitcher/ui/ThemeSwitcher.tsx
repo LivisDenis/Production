@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Button } from 'shared/ui/Button/Button';
 import ThemeIcon from 'shared/assets/icons/theme.svg';
@@ -8,7 +9,7 @@ interface ThemeSwitcherProps {
     className?: string
 }
 
-export const ThemeSwitcher = ({ className }: ThemeSwitcherProps) => {
+export const ThemeSwitcher = memo(({ className }: ThemeSwitcherProps) => {
   const { theme, toggleTheme } = useTheme();
 
   const themeFill = theme === Theme.DARK ? '#FDFDFD' : '#252525';
@@ -18,4 +19,4 @@ export const ThemeSwitcher = ({ className }: ThemeSwitcherProps) => {
       <ThemeIcon fill={themeFill} fillRule="evenodd" />
     </Button>
   );
-};
+});
