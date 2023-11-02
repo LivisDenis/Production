@@ -20,11 +20,11 @@ export const Input = memo((props: InputProps) => {
     type = 'text',
     ...otherProps
   } = props;
-  const ref = useRef<HTMLInputElement>();
+  const ref = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
     if (autofocus) {
-      ref.current.focus();
+      ref.current?.focus();
     }
   }, [autofocus]);
 
@@ -33,7 +33,7 @@ export const Input = memo((props: InputProps) => {
       ref={ref}
       type={type}
       value={value}
-      onChange={(e) => onChange(e.target.value)}
+      onChange={(e) => onChange?.(e.target.value)}
       className={classNames(cls.Input, {}, [className])}
       {...otherProps}
     />
