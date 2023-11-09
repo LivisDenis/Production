@@ -1,4 +1,4 @@
-.Input {
+.Select {
   border: none;
   background: var(--input-color);
   border-radius: 7px;
@@ -8,10 +8,6 @@
 
   &:focus {
     outline: 1px solid var(--input-outline-color);
-  }
-
-  &::placeholder {
-    color: var(--main-font-color);
   }
 }
 

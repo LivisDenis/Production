@@ -2,12 +2,17 @@
   font: var(--font-l);
 }
 
-.text {
+.subtitle {
   font: var(--font-m);
 }
 
+.text {
+  font: var(--font-s);
+}
+
 .error {
-  .title {
+  .title,
+  .subtitle {
     color: var(--accent-main-color);
   }
 

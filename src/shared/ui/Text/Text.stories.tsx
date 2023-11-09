@@ -16,12 +16,14 @@ const Template: ComponentStory<typeof Text> = (args) => <Text {...args} />;
 export const Normal = Template.bind({});
 Normal.args = {
   title: 'Lorem ipsum dolor sit amet.',
+  subtitle: 'Lorem ipsum dolor sit amet.',
   text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus, sed?',
 };
 
 export const Dark = Template.bind({});
 Dark.args = {
   title: 'Lorem ipsum dolor sit amet.',
+  subtitle: 'Lorem ipsum dolor sit amet.',
   text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus, sed?',
 };
 Dark.decorators = [ThemeDecorator(Theme.DARK)];
@@ -29,6 +31,7 @@ Dark.decorators = [ThemeDecorator(Theme.DARK)];
 export const Error = Template.bind({});
 Error.args = {
   title: 'Lorem ipsum dolor sit amet.',
+  subtitle: 'Lorem ipsum dolor sit amet.',
   text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus, sed?',
   theme: TextTheme.ERROR,
 };
@@ -41,4 +44,9 @@ onlyTitle.args = {
 export const onlyText = Template.bind({});
 onlyText.args = {
   text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus, sed?',
+};
+
+export const onlySubtitle = Template.bind({});
+onlyText.args = {
+  subtitle: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus, sed?',
 };

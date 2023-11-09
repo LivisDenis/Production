@@ -7,8 +7,9 @@ import cls from './Input.module.scss';
 interface InputProps extends Omit<InputHTMLAttributes<HTMLInputElement>, 'onChange' | 'value'>{
     className?: string
     onChange?: (value: string) => void
-    value?: string
+    value?: string | number
     autofocus?: boolean
+    label?: string
 }
 
 export const Input = memo((props: InputProps) => {
@@ -17,6 +18,7 @@ export const Input = memo((props: InputProps) => {
     onChange,
     value,
     autofocus,
+    label,
     type = 'text',
     ...otherProps
   } = props;
@@ -29,13 +31,16 @@ export const Input = memo((props: InputProps) => {
   }, [autofocus]);
 
   return (
-    <input
-      ref={ref}
-      type={type}
-      value={value}
-      onChange={(e) => onChange?.(e.target.value)}
-      className={classNames(cls.Input, {}, [className])}
-      {...otherProps}
-    />
+    <div className={cls.wrapper}>
+      {label && <span className={cls.label}>{label}</span>}
+      <input
+        ref={ref}
+        type={type}
+        value={value}
+        onChange={(e) => onChange?.(e.target.value)}
+        className={classNames(cls.Input, {}, [className])}
+        {...otherProps}
+      />
+    </div>
   );
 });

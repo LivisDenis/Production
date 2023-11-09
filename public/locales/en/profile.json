@@ -1,0 +1,17 @@
+{
+  "Профиль": "Profile",
+  "Личные данные": "Personal data",
+  "Произошла ошибка при загрузке профиля": "There was an error loading your profile",
+  "Перезагрузите страницу": "Reload the page",
+  "Настройки профиля": "Profile Settings",
+  "Отмена": "Cancel",
+  "Сохранить": "Save",
+  "Редактировать": "Edit",
+  "Имя": "Firstname",
+  "Фамилия": "Lastname",
+  "Дата рождения": "Age",
+  "Город": "City",
+  "Ссылка на аватар": "Avatar link",
+  "Имя пользователя": "Username",
+  "Валюта": "Currency"
+}
