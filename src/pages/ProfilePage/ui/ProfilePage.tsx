@@ -1,11 +1,11 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader';
-import { ProfileCard } from 'entities/Profile';
+import { ProfileCard, ValidateProfileErrors } from 'entities/Profile';
 import { useCallback, useEffect } from 'react';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useSelector } from 'react-redux';
-import { Text } from 'shared/ui/Text/Text';
+import { Text, TextTheme } from 'shared/ui/Text/Text';
 import { getProfileForm } from 'pages/ProfilePage/model/selectors/getProfileForm/getProfileForm';
 import { Currency } from 'entities/CurrencySelect';
 import { getProfileIsLoading } from '../model/selectors/getProfileIsLoading/getProfileIsLoading';
@@ -15,6 +15,7 @@ import { fetchProfileData } from '../model/services/fetchProfileData/fetchProfil
 import { updateProfileData } from '../model/services/updateProfileData/updateProfileData';
 import cls from './ProfilePage.module.scss';
 import { getProfileReadonly } from '../model/selectors/getProfileReadonly/getProfileReadonly';
+import { getProfileValidateErrors } from '../model/selectors/getProfileValidateErrors/getProfileValidateErrors';
 
 const reducers: ReducersList = {
   profile: profileReducer,
@@ -27,6 +28,15 @@ const ProfilePage = () => {
   const isLoading = useSelector(getProfileIsLoading);
   const readonly = useSelector(getProfileReadonly);
   const error = useSelector(getProfileError);
+  const validateErrors = useSelector(getProfileValidateErrors);
+
+  const validateErrorsTranslate = {
+    [ValidateProfileErrors.NO_DATA]: t('Данные не указаны'),
+    [ValidateProfileErrors.INCORRECT_CITY]: t('Некорректный регион'),
+    [ValidateProfileErrors.INCORRECT_USER_DATA]: t('Имя и фамилия обязательны'),
+    [ValidateProfileErrors.INCORRECT_AVATAR_LINK]: t('Некорректная ссылка на аватар'),
+    [ValidateProfileErrors.SERVER_ERROR]: t('Серверная ошибка при сохранении'),
+  };
 
   useEffect(() => {
     dispatch(fetchProfileData());
@@ -45,7 +55,7 @@ const ProfilePage = () => {
   }, [dispatch]);
 
   const onChangeAge = useCallback((value?: string) => {
-    dispatch(profileActions.updateProfile({ age: Number(value || 0) }));
+    dispatch(profileActions.updateProfile({ age: Number(value?.match(/^\d+$/) || 0) }));
   }, [dispatch]);
 
   const onChangeCity = useCallback((value?: string) => {
@@ -76,6 +86,13 @@ const ProfilePage = () => {
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
       <div className={classNames(cls.ProfilePage, {})}>
         <Text title={t('Профиль')} />
+        {validateErrors?.length && validateErrors.map((err) => (
+          <Text
+            key={err}
+            theme={TextTheme.ERROR}
+            text={validateErrorsTranslate[err]}
+          />
+        ))}
         <ProfileCard
           data={formData}
           readonly={readonly}
