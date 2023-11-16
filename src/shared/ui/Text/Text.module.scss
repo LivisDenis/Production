@@ -10,6 +10,18 @@
   font: var(--font-s);
 }
 
+.start {
+  text-align: start;
+}
+
+.center {
+  text-align: center;
+}
+
+.end {
+  text-align: end;
+}
+
 .error {
   .title,
   .subtitle {

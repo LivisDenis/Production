@@ -6,7 +6,7 @@ interface AvatarProps {
     className?: string
     src?: string
     size?: number
-    borderRadius?: number
+    borderRadius?: number | string
 
 }
 

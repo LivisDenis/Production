@@ -14,11 +14,21 @@
   min-height: 100vh;
 }
 
-.content-page {
+.wrapper {
   display: flex;
 }
 
 .page-wrapper {
   flex-grow: 1;
-  padding: 30px;
+}
+
+.content-page-wrapper {
+  height: calc(100vh - 70px);
+  overflow-y: auto;
+}
+
+.content-page {
+  padding: 0 30px 20px;
+  max-width: 1050px;
+  margin: 0 auto;
 }

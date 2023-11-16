@@ -8,12 +8,19 @@ export enum TextTheme {
     ERROR = 'error',
 }
 
+export enum TextAlign {
+    CENTER='center',
+    START='start',
+    END='end',
+}
+
 interface TextProps {
     className?: string
     title?: string
     subtitle?: string
     text?: string
     theme?: TextTheme
+    align?: TextAlign
 }
 
 export const Text = memo((props: TextProps) => {
@@ -22,12 +29,14 @@ export const Text = memo((props: TextProps) => {
     title,
     subtitle,
     className,
+    align = TextAlign.START,
     theme = TextTheme.NORMAL,
   } = props;
 
   const additional = [
     className,
     cls[theme],
+    cls[align],
   ];
 
   return (

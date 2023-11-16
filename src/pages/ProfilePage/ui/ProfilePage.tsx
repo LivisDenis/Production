@@ -2,7 +2,7 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader';
 import { ProfileCard, ValidateProfileErrors } from 'entities/Profile';
-import { useCallback, useEffect } from 'react';
+import { memo, useCallback, useEffect } from 'react';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useSelector } from 'react-redux';
 import { Text, TextTheme } from 'shared/ui/Text/Text';
@@ -83,7 +83,7 @@ const ProfilePage = () => {
   };
 
   return (
-    <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
+    <DynamicModuleLoader reducers={reducers}>
       <div className={classNames(cls.ProfilePage, {})}>
         <Text title={t('Профиль')} />
         {validateErrors?.length && validateErrors.map((err) => (
@@ -114,4 +114,4 @@ const ProfilePage = () => {
   );
 };
 
-export default ProfilePage;
+export default memo(ProfilePage);

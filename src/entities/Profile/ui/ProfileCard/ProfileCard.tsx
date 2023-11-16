@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import { Input } from 'shared/ui/Input/Input';
@@ -26,7 +27,7 @@ interface ProfileCardProps {
     onChangeAvatar?: (value?: string) => void
 }
 
-export const ProfileCard = (props: ProfileCardProps) => {
+export const ProfileCard = memo((props: ProfileCardProps) => {
   const {
     data,
     readonly,
@@ -99,4 +100,4 @@ export const ProfileCard = (props: ProfileCardProps) => {
       </div>
     </div>
   );
-};
+});

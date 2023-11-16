@@ -1,4 +1,4 @@
-import { Suspense, useCallback } from 'react';
+import { memo, Suspense, useCallback } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { AppRoutesProps, routeConfig } from 'shared/config/routeConfig/routeConfig';
 import { PageLoader } from 'widgets/PageLoader';
@@ -8,7 +8,7 @@ const AppRouter = () => {
   const protectedRoutes = useCallback((route: AppRoutesProps) => {
     const element = (
       <Suspense fallback={<PageLoader />}>
-        <div>{route.element}</div>
+        <div className="content-page">{route.element}</div>
       </Suspense>
     );
 
@@ -24,6 +24,7 @@ const AppRouter = () => {
       />
     );
   }, []);
+
   return (
     <Routes>
       {Object.values(routeConfig).map(protectedRoutes)}
@@ -31,4 +32,4 @@ const AppRouter = () => {
   );
 };
 
-export default AppRouter;
+export default memo(AppRouter);
