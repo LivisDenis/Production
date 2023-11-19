@@ -1,5 +1,6 @@
 .app_light_theme {
   --bg-color: #FDFDFD;
+  --inverted-bg-color: #252525;
   --main-color: #24484E;
   --secondary-color: #365B61;
 
@@ -23,4 +24,7 @@
   --button-medium-color: #40808A;
   --button-gray-color: #365B61;
   --button-dark-color: #183A40;
+
+  // code
+  --code-bg: #d3d3d3;
 }

@@ -5,7 +5,8 @@ import { useCallback, useEffect } from 'react';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useSelector } from 'react-redux';
 import { Text, TextAlign, TextTheme } from 'shared/ui/Text/Text';
-import { Avatar } from 'shared/ui/Avatar/Avatar';
+import { getAuthData } from 'entities/User';
+import ProfileIcon from 'shared/assets/icons/icon-profile.svg';
 import {
   getArticleDetailsData,
   getArticleDetailsError,
@@ -39,6 +40,7 @@ export const ArticleDetails = (props: ArticleDetailsProps) => {
   const article = useSelector(getArticleDetailsData);
   const isLoading = useSelector(getArticleDetailsIsLoading);
   const error = useSelector(getArticleDetailsError);
+  const username = useSelector(getAuthData);
 
   useEffect(() => {
     dispatch(fetchArticleById(id));
@@ -47,11 +49,11 @@ export const ArticleDetails = (props: ArticleDetailsProps) => {
   const renderBlock = useCallback((block: ArticleBlock) => {
     switch (block.type) {
       case ArticleBlockType.CODE:
-        return <ArticleCodeBlockComponent key={block.id} data={block} />;
+        return <ArticleCodeBlockComponent key={block.id} block={block} />;
       case ArticleBlockType.TEXT:
-        return <ArticleTextBlockComponent key={block.id} data={block} />;
+        return <ArticleTextBlockComponent key={block.id} block={block} />;
       case ArticleBlockType.IMAGE:
-        return <ArticleImageBlockComponent key={block.id} data={block} />;
+        return <ArticleImageBlockComponent key={block.id} block={block} />;
       default:
         return null;
     }
@@ -66,7 +68,7 @@ export const ArticleDetails = (props: ArticleDetailsProps) => {
   if (error) {
     return (
       <Text
-        title={t('Произошла ошибка при загрузке статьи.')}
+        title={t('Произошла ошибка при загрузке статьи')}
         align={TextAlign.CENTER}
         theme={TextTheme.ERROR}
       />
@@ -79,10 +81,12 @@ export const ArticleDetails = (props: ArticleDetailsProps) => {
         <Text title={article?.title} subtitle={article?.subtitle} />
         <div className={cls.info_block}>
           <div className={cls.author}>
-            <Avatar size={20} borderRadius="50%" />
-            Author
+            {/* <Avatar size={20} borderRadius="50%" /> */}
+            <ProfileIcon />
+            {username?.username}
           </div>
           <div className={cls.stats}>
+            {/* eslint-disable-next-line i18next/no-literal-string */}
             <span>{article?.createdAt}</span>
             ·
             <span>{`${article?.views} просмотров`}</span>

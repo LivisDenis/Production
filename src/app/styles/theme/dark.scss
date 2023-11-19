@@ -1,5 +1,6 @@
 .app_dark_theme {
   --bg-color: #252525;
+  --inverted-bg-color: #FDFDFD;
   --main-color: #24484E;
   --secondary-color: #183A40;
 
@@ -23,4 +24,7 @@
   --button-medium-color: #363636;
   --button-gray-color: #252525;
   --button-dark-color: #191919;
+
+  // code
+  --code-bg: #3a3a3a;
 }

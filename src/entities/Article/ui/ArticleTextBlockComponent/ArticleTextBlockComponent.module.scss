@@ -1,8 +1,9 @@
-.ArticleTextBlockComponent {
-}
-
 .paragraphs {
   display: flex;
   flex-direction: column;
   gap: 25px;
+}
+
+.title {
+  margin-bottom: 20px;
 }
