@@ -11,6 +11,7 @@ export const ArticleDetailsSkeleton = () => (
         <Skeleton height={20} width={60} />
       </div>
       <div className={cls.stats}>
+        {/* eslint-disable-next-line i18next/no-literal-string */}
         <Skeleton height={20} width={80} />
         ·
         <Skeleton height={20} width={80} />

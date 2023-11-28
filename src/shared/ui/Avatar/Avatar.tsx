@@ -21,7 +21,7 @@ export const Avatar = (props: AvatarProps) => {
   const styles = useMemo<CSSProperties>(() => ({
     width: size || 155,
     height: size || 193,
-    borderRadius: borderRadius || 0,
+    borderRadius: borderRadius || '50%',
   }), [borderRadius, size]);
 
   return (

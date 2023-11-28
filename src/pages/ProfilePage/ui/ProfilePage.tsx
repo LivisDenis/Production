@@ -6,14 +6,13 @@ import { memo, useCallback, useEffect } from 'react';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useSelector } from 'react-redux';
 import { Text, TextTheme } from 'shared/ui/Text/Text';
-import { getProfileForm } from 'pages/ProfilePage/model/selectors/getProfileForm/getProfileForm';
 import { Currency } from 'entities/CurrencySelect';
+import { getProfileForm } from '../model/selectors/getProfileForm/getProfileForm';
 import { getProfileIsLoading } from '../model/selectors/getProfileIsLoading/getProfileIsLoading';
 import { getProfileError } from '../model/selectors/getProfileError/getProfileError';
 import { profileActions, profileReducer } from '../model/slice/profileSlice';
 import { fetchProfileData } from '../model/services/fetchProfileData/fetchProfileData';
 import { updateProfileData } from '../model/services/updateProfileData/updateProfileData';
-import cls from './ProfilePage.module.scss';
 import { getProfileReadonly } from '../model/selectors/getProfileReadonly/getProfileReadonly';
 import { getProfileValidateErrors } from '../model/selectors/getProfileValidateErrors/getProfileValidateErrors';
 
@@ -40,7 +39,7 @@ const ProfilePage = () => {
 
   useEffect(() => {
     dispatch(fetchProfileData());
-  }, []);
+  }, [dispatch]);
 
   const onChangeUsername = useCallback((value?: string) => {
     dispatch(profileActions.updateProfile({ username: value || '' }));
@@ -84,7 +83,7 @@ const ProfilePage = () => {
 
   return (
     <DynamicModuleLoader reducers={reducers}>
-      <div className={classNames(cls.ProfilePage, {})}>
+      <div className={classNames('', {})}>
         <Text title={t('Профиль')} />
         {validateErrors?.length && validateErrors.map((err) => (
           <Text
