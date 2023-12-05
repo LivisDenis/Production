@@ -7,6 +7,8 @@ import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useSelector } from 'react-redux';
 import { Text, TextTheme } from 'shared/ui/Text/Text';
 import { Currency } from 'entities/CurrencySelect';
+import { useParams } from 'react-router-dom';
+import { getAuthData } from 'entities/User';
 import { getProfileForm } from '../model/selectors/getProfileForm/getProfileForm';
 import { getProfileIsLoading } from '../model/selectors/getProfileIsLoading/getProfileIsLoading';
 import { getProfileError } from '../model/selectors/getProfileError/getProfileError';
@@ -24,10 +26,13 @@ const ProfilePage = () => {
   const { t } = useTranslation('profile');
   const dispatch = useAppDispatch();
   const formData = useSelector(getProfileForm);
+  const userData = useSelector(getAuthData);
+  const canEdit = userData?.id === formData?.id;
   const isLoading = useSelector(getProfileIsLoading);
   const readonly = useSelector(getProfileReadonly);
   const error = useSelector(getProfileError);
   const validateErrors = useSelector(getProfileValidateErrors);
+  const { id } = useParams<{id: string}>();
 
   const validateErrorsTranslate = {
     [ValidateProfileErrors.NO_DATA]: t('Данные не указаны'),
@@ -38,8 +43,10 @@ const ProfilePage = () => {
   };
 
   useEffect(() => {
-    dispatch(fetchProfileData());
-  }, [dispatch]);
+    if (id) {
+      dispatch(fetchProfileData(id));
+    }
+  }, [dispatch, id]);
 
   const onChangeUsername = useCallback((value?: string) => {
     dispatch(profileActions.updateProfile({ username: value || '' }));
@@ -107,6 +114,7 @@ const ProfilePage = () => {
           onChangeCity={onChangeCity}
           onChangeCurrency={onChangeCurrency}
           onChangeAvatar={onChangeAvatar}
+          canEdit={canEdit}
         />
       </div>
     </DynamicModuleLoader>

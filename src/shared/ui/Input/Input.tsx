@@ -31,16 +31,29 @@ export const Input = memo((props: InputProps) => {
   }, [autofocus]);
 
   return (
-    <div className={cls.wrapper}>
-      {label && <span className={cls.label}>{label}</span>}
-      <input
-        ref={ref}
-        type={type}
-        value={value}
-        onChange={(e) => onChange?.(e.target.value)}
-        className={classNames(cls.Input, {}, [className])}
-        {...otherProps}
-      />
-    </div>
+    label
+      ? (
+        <div className={cls.wrapper}>
+          <span className={cls.label}>{label}</span>
+          <input
+            ref={ref}
+            type={type}
+            value={value}
+            onChange={(e) => onChange?.(e.target.value)}
+            className={classNames(cls.Input, {}, [className])}
+            {...otherProps}
+          />
+        </div>
+      )
+      : (
+        <input
+          ref={ref}
+          type={type}
+          value={value}
+          onChange={(e) => onChange?.(e.target.value)}
+          className={classNames(cls.Input, {}, [className])}
+          {...otherProps}
+        />
+      )
   );
 });

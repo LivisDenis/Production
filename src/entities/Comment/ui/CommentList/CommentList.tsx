@@ -19,8 +19,8 @@ export const CommentList = (props: CommentListProps) => {
   if (isLoading) {
     return (
       <div className={classNames(cls.CommentList, {}, [className])}>
-        {Array.from(new Array(4)).map(() => (
-          <CommentCardSkeleton />
+        {Array.from(new Array(4)).map((_, i) => (
+          <CommentCardSkeleton key={i} />
         ))}
       </div>
     );

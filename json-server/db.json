@@ -29,7 +29,9 @@
       "img": "https://www.comingsoon.net/wp-content/uploads/sites/3/2023/03/naruto-episodes-header.png",
       "views": 1022,
       "createdAt": "26.02.2022",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -110,6 +112,48 @@
       "text": "some comment 3",
       "articleId": "1",
       "userId": 1
+    },
+    {
+      "articleId": "1",
+      "userId": 1,
+      "text": "test comment 1",
+      "id": 4
+    },
+    {
+      "articleId": "1",
+      "userId": 1,
+      "text": "test comment 2",
+      "id": 5
+    },
+    {
+      "articleId": "1",
+      "userId": 1,
+      "text": "test 1",
+      "id": 6
+    },
+    {
+      "articleId": "1",
+      "userId": 1,
+      "text": "123",
+      "id": 7
+    },
+    {
+      "articleId": "1",
+      "userId": 1,
+      "text": "sdvsd",
+      "id": 8
+    },
+    {
+      "articleId": "1",
+      "userId": 2,
+      "text": "user test",
+      "id": 9
+    },
+    {
+      "articleId": "1",
+      "userId": 1,
+      "text": "commentasc",
+      "id": 10
     }
   ],
   "users": [
@@ -125,17 +169,31 @@
       "username": "user",
       "password": "123",
       "role": "USER",
-      "avatar": "https://wallpapers.com/images/featured/cute-naruto-jtmjd4ifiqi7a48s.jpg"
+      "avatar": "https://artjapan.ru/wp-content/uploads/2022/01/6d9834b8e903b9518dc5f74e33050283.jpg"
     }
   ],
-  "profile": {
-    "firstname": "Denisio",
-    "lastname": "Livis",
-    "age": 22,
-    "currency": "USD",
-    "country": "Russia",
-    "city": "Moscow",
-    "username": "admin",
-    "avatar": "https://wallpapers.com/images/featured/cute-naruto-jtmjd4ifiqi7a48s.jpg"
-  }
+  "profile": [
+    {
+      "id": 1,
+      "firstname": "Denisios",
+      "lastname": "Livis",
+      "age": 22,
+      "currency": "USD",
+      "country": "Russia",
+      "city": "Moscow",
+      "username": "admin",
+      "avatar": "https://wallpapers.com/images/featured/cute-naruto-jtmjd4ifiqi7a48s.jpg"
+    },
+    {
+      "id": 2,
+      "firstname": "John",
+      "lastname": "Negro",
+      "age": 22,
+      "currency": "USD",
+      "country": "USA",
+      "city": "New York",
+      "username": "user",
+      "avatar": "https://artjapan.ru/wp-content/uploads/2022/01/6d9834b8e903b9518dc5f74e33050283.jpg"
+    }
+  ]
 }

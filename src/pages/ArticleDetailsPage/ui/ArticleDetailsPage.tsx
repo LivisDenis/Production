@@ -6,8 +6,10 @@ import { ArticleDetails } from 'entities/Article';
 import { CommentList } from 'entities/Comment';
 import { useSelector } from 'react-redux';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { useEffect } from 'react';
+import { useCallback, useEffect } from 'react';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader';
+import { AddCommentForm } from 'features/addCommentForm';
+import { addCommentForArticle } from '../module/services/addCommentForArticle/addCommentForArticle';
 import {
   fetchCommentsByArticleId,
 } from '../module/services/fetchCommentsArticleById/fetchCommentsByArticleId';
@@ -40,6 +42,10 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
     dispatch(fetchCommentsByArticleId(id));
   }, [dispatch, id]);
 
+  const onSendComment = useCallback((text: string) => {
+    dispatch(addCommentForArticle(text));
+  }, [dispatch]);
+
   if (!id) {
     return (
       <div className={classNames('', {}, [className])}>
@@ -52,6 +58,7 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
     <div className={classNames('', {}, [className])}>
       <ArticleDetails id={id} />
       <Text className={cls.comment_title} title={t('Комментарии')} />
+      <AddCommentForm onSendComment={onSendComment} />
       <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
         <CommentList
           comments={comments}

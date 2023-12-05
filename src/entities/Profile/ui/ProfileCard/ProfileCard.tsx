@@ -15,6 +15,7 @@ interface ProfileCardProps {
     readonly?: boolean
     error?: string
     isLoading?: boolean
+    canEdit?: boolean
     onEdit?: () => void
     onSaveEdit?: () => void
     onCancelEdit?: () => void
@@ -43,6 +44,7 @@ export const ProfileCard = memo((props: ProfileCardProps) => {
     onChangeCity,
     onChangeCurrency,
     onChangeAvatar,
+    canEdit,
   } = props;
   const { t } = useTranslation('profile');
 
@@ -88,6 +90,7 @@ export const ProfileCard = memo((props: ProfileCardProps) => {
           <CurrencySelect label={t('Валюта')} value={data?.currency} onChange={onChangeCurrency} readonly={readonly} />
         </div>
       </div>
+      {canEdit && (
       <div className={cls.buttons}>
         {readonly
           ? <Button onClick={onEdit} theme={ButtonTheme.OUTLINE}>{t('Редактировать')}</Button>
@@ -98,6 +101,7 @@ export const ProfileCard = memo((props: ProfileCardProps) => {
             </>
           )}
       </div>
+      )}
     </div>
   );
 });
