@@ -1,0 +1,107 @@
+.ArticleListItem {
+  transition: 0.2s;
+
+  &:hover {
+    transform: scale(1.02);
+  }
+}
+
+.SMALL {
+  cursor: pointer;
+  width: 165px;
+
+  .infoWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 8px;
+
+    p {
+      font: var(--font-xs);
+    }
+  }
+
+  .title {
+    margin-top: 4px;
+    max-width: 140px;
+
+    p {
+      font: var(--font-s);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
+
+  .views {
+    margin-left: auto;
+  }
+
+  .image {
+    width: 100%;
+    height: 153px;
+    object-fit: cover;
+    border-radius: 5px;
+  }
+
+  .types {
+    margin-right: 8px;
+    max-width: 120px;
+
+    p {
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+  }
+}
+
+.BIG {
+  width: 100%;
+
+  .infoWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+
+    p {
+      font: var(--font-s);
+    }
+  }
+
+  .author {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 5px;
+    margin-bottom: 10px;
+  }
+
+  .textBlock {
+    max-height: 200px;
+    overflow-y: hidden;
+  }
+
+  .titleSkeleton {
+    margin-bottom: 10px;
+    margin-top: 20px;
+  }
+
+  .footer {
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    p {
+      font: var(--font-s);
+    }
+  }
+}
