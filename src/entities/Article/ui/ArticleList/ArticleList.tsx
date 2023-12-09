@@ -1,13 +1,13 @@
 import { classNames } from 'shared/lib/classNames/classNames';
-import { Article, ArticleView } from 'entities/Article';
-import { ArticleListItem } from 'entities/Article/ui/ArticleListItem/ArticleListItem';
-import cls from './ArticleList.module.scss';
+import { Article, ArticleView } from '../../model/types/article';
+import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
 import { ArticleListItemSkeleton } from '../ArticleListItem/ArticleListItemSkeleton';
+import cls from './ArticleList.module.scss';
 
 interface ArticleListProps {
     className?: string
     articles?: Article[]
-    view?: ArticleView
+    view: ArticleView
     isLoading?: boolean
 }
 
@@ -30,9 +30,8 @@ export const ArticleList = (props: ArticleListProps) => {
       </div>
     );
   }
-
   const renderArticle = (article: Article) => (
-    <ArticleListItem article={article} view={view} />
+    <ArticleListItem key={article.id} article={article} view={view} />
   );
 
   return (

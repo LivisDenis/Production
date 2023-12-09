@@ -4,6 +4,9 @@ import { Text } from 'shared/ui/Text/Text';
 import { Avatar } from 'shared/ui/Avatar/Avatar';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import { Card } from 'shared/ui/Card/Card';
+import { navigate } from '@storybook/addon-links';
+import { useNavigate } from 'react-router-dom';
+import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
 import {
   Article, ArticleBlockType, ArticleTextBlock, ArticleView,
@@ -23,6 +26,11 @@ export const ArticleListItem = (props: ArticleListItemProps) => {
     article,
   } = props;
   const { t } = useTranslation();
+  const navigate = useNavigate();
+
+  const onClickNavigate = () => {
+    navigate(RoutePath.article_details + article.id);
+  };
 
   if (view === ArticleView.BIG) {
     const textBlock = article.blocks.find(
@@ -30,7 +38,7 @@ export const ArticleListItem = (props: ArticleListItemProps) => {
     ) as ArticleTextBlock;
 
     return (
-      <Card className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}>
+      <Card onClick={onClickNavigate} className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}>
         <div className={cls.infoWrapper}>
           <div className={cls.author}>
             <Avatar size={30} src={article.user.avatar} />
@@ -49,7 +57,7 @@ export const ArticleListItem = (props: ArticleListItemProps) => {
   }
 
   return (
-    <Card className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}>
+    <Card onClick={onClickNavigate} className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}>
       <img className={cls.image} src={article.img} alt={article.title} />
       <div className={cls.infoWrapper}>
         <Text className={cls.types} text={article.type.join(', ')} />

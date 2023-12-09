@@ -1,0 +1,10 @@
+.ArticleViewSelector {
+  display: flex;
+  justify-content: end;
+  margin-bottom: 10px;
+  gap: 15px;
+}
+
+.noSelected {
+  opacity: 0.3;
+}
