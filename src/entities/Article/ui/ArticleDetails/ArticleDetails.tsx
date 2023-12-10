@@ -5,8 +5,7 @@ import { useCallback, useEffect } from 'react';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useSelector } from 'react-redux';
 import { Text, TextAlign, TextTheme } from 'shared/ui/Text/Text';
-import { getAuthData } from 'entities/User';
-import ProfileIcon from 'shared/assets/icons/icon-profile.svg';
+import { Avatar } from 'shared/ui/Avatar/Avatar';
 import {
   getArticleDetailsData,
   getArticleDetailsError,
@@ -40,7 +39,6 @@ export const ArticleDetails = (props: ArticleDetailsProps) => {
   const article = useSelector(getArticleDetailsData);
   const isLoading = useSelector(getArticleDetailsIsLoading);
   const error = useSelector(getArticleDetailsError);
-  const username = useSelector(getAuthData);
 
   useEffect(() => {
     dispatch(fetchArticleById(id));
@@ -59,12 +57,6 @@ export const ArticleDetails = (props: ArticleDetailsProps) => {
     }
   }, []);
 
-  if (isLoading) {
-    return (
-      <ArticleDetailsSkeleton />
-    );
-  }
-
   if (error) {
     return (
       <Text
@@ -77,26 +69,29 @@ export const ArticleDetails = (props: ArticleDetailsProps) => {
 
   return (
     <DynamicModuleLoader reducers={reducers}>
-      <div className={classNames(cls.ArticleDetails, {}, [className])}>
-        <Text title={article?.title} subtitle={article?.subtitle} />
-        <div className={cls.info_block}>
-          <div className={cls.author}>
-            {/* <Avatar size={20} borderRadius="50%" /> */}
-            <ProfileIcon />
-            {username?.username}
+      {isLoading
+        ? <ArticleDetailsSkeleton />
+        : (
+          <div className={classNames(cls.ArticleDetails, {}, [className])}>
+            <Text title={article?.title} subtitle={article?.subtitle} />
+            <div className={cls.info_block}>
+              <div className={cls.author}>
+                <Avatar size={20} borderRadius="50%" src={article?.user.avatar} />
+                {article?.user.username}
+              </div>
+              <div className={cls.stats}>
+                {/* eslint-disable-next-line i18next/no-literal-string */}
+                <span>{article?.createdAt}</span>
+                ·
+                <span>{`${article?.views} просмотров`}</span>
+              </div>
+            </div>
+            <img className={cls.image} src={article?.img} alt={article?.img} />
+            <div className={cls.content_block}>
+              {article?.blocks.map(renderBlock)}
+            </div>
           </div>
-          <div className={cls.stats}>
-            {/* eslint-disable-next-line i18next/no-literal-string */}
-            <span>{article?.createdAt}</span>
-            ·
-            <span>{`${article?.views} просмотров`}</span>
-          </div>
-        </div>
-        <img className={cls.image} src={article?.img} alt={article?.img} />
-        <div className={cls.content_block}>
-          {article?.blocks.map(renderBlock)}
-        </div>
-      </div>
+        )}
     </DynamicModuleLoader>
   );
 };
