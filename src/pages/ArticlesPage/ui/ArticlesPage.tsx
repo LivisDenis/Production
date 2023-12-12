@@ -9,12 +9,12 @@ import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/Dynamic
 import { Page } from 'shared/ui/Page/Page';
 import { articlesPageActions, articlesPageReducer, getArticles } from '../model/slice/articlesPageSlice';
 import {
-  getArticlesPageError, getArticlesPageHasMore,
-  getArticlesPageIsLoading, getArticlesPageNum,
+  getArticlesPageIsLoading,
   getArticlesPageView,
 } from '../model/selectors/articlesPageSelectors';
 import { fetchArticlesList } from '../model/services/fetchArticlesList/fetchArticlesList';
 import cls from './ArticlesPage.module.scss';
+import { fetchNextArticlesPage } from '../model/services/fetchNextArticlesPage/fetchNextArticlesPage';
 
 interface ArticlesPageProps {
     className?: string
@@ -31,19 +31,15 @@ const ArticlesPage = (props: ArticlesPageProps) => {
   const { t } = useTranslation();
   const dispatch = useAppDispatch();
   const isLoading = useSelector(getArticlesPageIsLoading);
-  const error = useSelector(getArticlesPageError);
   const view = useSelector(getArticlesPageView);
-  const page = useSelector(getArticlesPageNum);
-  const hasMore = useSelector(getArticlesPageHasMore);
   const articles = useSelector(getArticles.selectAll);
 
   const onLoadNextPart = () => {
-    if (hasMore && !isLoading) {
-      dispatch(articlesPageActions.setPage(page + 1));
-      dispatch(fetchArticlesList({
-        page: page + 1,
-      }));
-    }
+    dispatch(fetchNextArticlesPage());
+  };
+
+  const onChangeView = (view: ArticleView) => {
+    dispatch(articlesPageActions.setView(view));
   };
 
   useEffect(() => {
@@ -52,10 +48,6 @@ const ArticlesPage = (props: ArticlesPageProps) => {
       page: 1,
     }));
   }, [dispatch]);
-
-  const onChangeView = (view: ArticleView) => {
-    dispatch(articlesPageActions.setView(view));
-  };
 
   return (
     <DynamicModuleLoader reducers={reducers}>
