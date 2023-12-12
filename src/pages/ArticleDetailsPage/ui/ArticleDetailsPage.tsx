@@ -9,6 +9,7 @@ import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useCallback, useEffect } from 'react';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader';
 import { AddCommentForm } from 'features/addCommentForm';
+import { Page } from 'shared/ui/Page/Page';
 import { addCommentForArticle } from '../module/services/addCommentForArticle/addCommentForArticle';
 import {
   fetchCommentsByArticleId,
@@ -55,7 +56,7 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
   }
 
   return (
-    <div className={classNames('', {}, [className])}>
+    <Page className={classNames('', {}, [className])}>
       <ArticleDetails id={id} />
       <Text className={cls.comment_title} title={t('Комментарии')} />
       <AddCommentForm onSendComment={onSendComment} />
@@ -65,7 +66,7 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
           isLoading={commentsIsLoading}
         />
       </DynamicModuleLoader>
-    </div>
+    </Page>
   );
 };
 

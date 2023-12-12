@@ -9,6 +9,7 @@ import { Text, TextTheme } from 'shared/ui/Text/Text';
 import { Currency } from 'entities/CurrencySelect';
 import { useParams } from 'react-router-dom';
 import { getAuthData } from 'entities/User';
+import { Page } from 'shared/ui/Page/Page';
 import { getProfileForm } from '../model/selectors/getProfileForm/getProfileForm';
 import { getProfileIsLoading } from '../model/selectors/getProfileIsLoading/getProfileIsLoading';
 import { getProfileError } from '../model/selectors/getProfileError/getProfileError';
@@ -90,7 +91,7 @@ const ProfilePage = () => {
 
   return (
     <DynamicModuleLoader reducers={reducers}>
-      <div className={classNames('', {})}>
+      <Page className={classNames('', {})}>
         <Text title={t('Профиль')} />
         {validateErrors?.length && validateErrors.map((err) => (
           <Text
@@ -116,7 +117,7 @@ const ProfilePage = () => {
           onChangeAvatar={onChangeAvatar}
           canEdit={canEdit}
         />
-      </div>
+      </Page>
     </DynamicModuleLoader>
   );
 };

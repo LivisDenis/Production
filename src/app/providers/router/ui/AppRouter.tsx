@@ -8,7 +8,7 @@ const AppRouter = () => {
   const protectedRoutes = useCallback((route: AppRoutesProps) => {
     const element = (
       <Suspense fallback={<PageLoader />}>
-        <div className="content-page">{route.element}</div>
+        {route.element}
       </Suspense>
     );
 
