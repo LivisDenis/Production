@@ -4,7 +4,6 @@ import { Text } from 'shared/ui/Text/Text';
 import { Avatar } from 'shared/ui/Avatar/Avatar';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import { Card } from 'shared/ui/Card/Card';
-import { navigate } from '@storybook/addon-links';
 import { useNavigate } from 'react-router-dom';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
@@ -38,7 +37,7 @@ export const ArticleListItem = (props: ArticleListItemProps) => {
     ) as ArticleTextBlock;
 
     return (
-      <Card onClick={onClickNavigate} className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}>
+      <Card className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}>
         <div className={cls.infoWrapper}>
           <div className={cls.author}>
             <Avatar size={30} src={article.user.avatar} />
@@ -49,7 +48,7 @@ export const ArticleListItem = (props: ArticleListItemProps) => {
         <img className={cls.image} src={article.img} alt={article.title} />
         {textBlock && <ArticleTextBlockComponent block={textBlock} className={cls.textBlock} />}
         <div className={cls.footer}>
-          <Button theme={ButtonTheme.OUTLINE}>{t('Читать далее...')}</Button>
+          <Button onClick={onClickNavigate} theme={ButtonTheme.OUTLINE}>{t('Читать далее...')}</Button>
           <Text text={String(article.views)} />
         </div>
       </Card>

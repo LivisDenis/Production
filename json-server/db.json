@@ -653,6 +653,18 @@
       "userId": 1,
       "text": "первый",
       "id": 13
+    },
+    {
+      "articleId": "17",
+      "userId": 2,
+      "text": "test",
+      "id": 14
+    },
+    {
+      "articleId": "17",
+      "userId": 2,
+      "text": "sdvsdv",
+      "id": 15
     }
   ],
   "users": [
