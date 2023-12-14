@@ -665,6 +665,18 @@
       "userId": 2,
       "text": "sdvsdv",
       "id": 15
+    },
+    {
+      "articleId": "3",
+      "userId": 2,
+      "text": " ",
+      "id": 16
+    },
+    {
+      "articleId": "3",
+      "userId": 2,
+      "text": " ",
+      "id": 17
     }
   ],
   "users": [

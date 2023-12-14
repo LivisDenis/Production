@@ -9,7 +9,7 @@ import { Text, TextTheme } from 'shared/ui/Text/Text';
 import { Currency } from 'entities/CurrencySelect';
 import { useParams } from 'react-router-dom';
 import { getAuthData } from 'entities/User';
-import { Page } from 'shared/ui/Page/Page';
+import { Page } from 'widgets/Page/Page';
 import { getProfileForm } from '../model/selectors/getProfileForm/getProfileForm';
 import { getProfileIsLoading } from '../model/selectors/getProfileIsLoading/getProfileIsLoading';
 import { getProfileError } from '../model/selectors/getProfileError/getProfileError';

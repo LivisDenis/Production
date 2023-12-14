@@ -27,17 +27,15 @@ const AddCommentForm = (props: AddCommentFormProps) => {
   } = props;
   const { t } = useTranslation();
   const dispatch = useAppDispatch();
-  const text = useSelector(getAddCommentFormText) || '';
+  const text = useSelector(getAddCommentFormText) ?? '';
 
   const onChangeCommentText = useCallback((value: string) => {
     dispatch(addCommentFromActions.setText(value));
   }, [dispatch]);
 
   const onSendHandler = useCallback(() => {
-    if (text) {
-      onSendComment(text);
-      onChangeCommentText('');
-    }
+    onSendComment(text);
+    onChangeCommentText('');
   }, [onChangeCommentText, onSendComment, text]);
 
   return (

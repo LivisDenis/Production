@@ -10,10 +10,12 @@ import { ArticleDetailsSchema } from 'entities/Article';
 import { ArticleDetailsCommentsSchema } from 'pages/ArticleDetailsPage';
 import { AddCommentFormSchema } from 'features/addCommentForm';
 import { ArticlesPageSchema } from 'pages/ArticlesPage';
+import { ScrollRestoreSchema } from 'features/scrollRestore';
 
 export interface StateSchema {
     counter: CounterSchema
     user: UserSchema
+    scrollRestore: ScrollRestoreSchema
 
     // async reducers
     loginUser?: LoginSchema

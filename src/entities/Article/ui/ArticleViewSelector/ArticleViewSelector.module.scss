@@ -8,3 +8,9 @@
 .noSelected {
   opacity: 0.3;
 }
+
+.btn {
+  svg path {
+    stroke: var(--main-font-color);
+  }
+}
