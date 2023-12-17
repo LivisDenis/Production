@@ -6,7 +6,7 @@ export const getQueryParams = (params: OptionalRecord<string, string>) => {
       searchParams.set(name, value);
     }
   });
-  console.log(`?${searchParams.toString()}`);
+
   return `?${searchParams.toString()}`;
 };
 
