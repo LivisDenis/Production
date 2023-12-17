@@ -1,20 +1,22 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
-import { ArticleList, ArticleView, ArticleViewSelector } from 'entities/Article';
+import { ArticleList } from 'entities/Article';
 import { Text } from 'shared/ui/Text/Text';
 import { useEffect } from 'react';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useSelector } from 'react-redux';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader';
 import { Page } from 'widgets/Page/Page';
-import { initArticlesPage } from '../model/services/initArticlesPage/initArticlesPage';
-import { articlesPageActions, articlesPageReducer, getArticles } from '../model/slice/articlesPageSlice';
+import { useSearchParams } from 'react-router-dom';
+import { initArticlesPage } from '../../model/services/initArticlesPage/initArticlesPage';
+import { articlesPageReducer, getArticles } from '../../model/slice/articlesPageSlice';
 import {
   getArticlesPageIsLoading,
   getArticlesPageView,
-} from '../model/selectors/articlesPageSelectors';
+} from '../../model/selectors/articlesPageSelectors';
 import cls from './ArticlesPage.module.scss';
-import { fetchNextArticlesPage } from '../model/services/fetchNextArticlesPage/fetchNextArticlesPage';
+import { fetchNextArticlesPage } from '../../model/services/fetchNextArticlesPage/fetchNextArticlesPage';
+import { ArticlesPageFilters } from '../ArticlesPageFilters/ArticlesPageFilters';
 
 interface ArticlesPageProps {
     className?: string
@@ -33,27 +35,22 @@ const ArticlesPage = (props: ArticlesPageProps) => {
   const isLoading = useSelector(getArticlesPageIsLoading);
   const view = useSelector(getArticlesPageView);
   const articles = useSelector(getArticles.selectAll);
+  const [searchParams] = useSearchParams();
 
   const onLoadNextPart = () => {
     dispatch(fetchNextArticlesPage());
   };
 
-  const onChangeView = (view: ArticleView) => {
-    dispatch(articlesPageActions.setView(view));
-  };
-
   useEffect(() => {
-    dispatch(initArticlesPage());
+    dispatch(initArticlesPage(searchParams));
+    // eslint-disable-next-line
   }, [dispatch]);
 
   return (
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount={false}>
       <Page onScrollEnd={onLoadNextPart} className={classNames(cls.ArticlesPage, {}, [className])}>
         <Text title={t('Статьи')} className={cls.title} />
-        <ArticleViewSelector
-          view={view}
-          onViewClick={onChangeView}
-        />
+        <ArticlesPageFilters view={view} />
         <ArticleList
           articles={articles}
           isLoading={isLoading}

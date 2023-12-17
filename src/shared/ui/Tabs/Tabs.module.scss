@@ -1,0 +1,16 @@
+.Tabs {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.tab {
+  max-width: 150px;
+  cursor: pointer;
+  text-align: center;
+  transition: 150ms;
+
+   &:hover {
+     transform: scale(1.04);
+   }
+}

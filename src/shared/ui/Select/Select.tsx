@@ -1,23 +1,22 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import { ChangeEvent, useMemo } from 'react';
-import { Currency } from 'entities/CurrencySelect';
 import cls from './Select.module.scss';
 
-interface SelectOptions {
-    value: string
+export interface SelectOptions<T extends string> {
+    value: T
     content: string
 }
 
-interface SelectProps {
+interface SelectProps<T extends string> {
     className?: string
     readonly?: boolean
     label?: string
-    value?: Currency
-    options?: SelectOptions[]
-    onChange?: (value: string) => void
+    value?: T
+    options?: SelectOptions<T>[]
+    onChange?: (value: T) => void
 }
 
-export const Select = (props: SelectProps) => {
+export const Select = <T extends string>(props: SelectProps<T>) => {
   const {
     className,
     value,
@@ -28,10 +27,10 @@ export const Select = (props: SelectProps) => {
   } = props;
 
   const onChangeSelect = (e: ChangeEvent<HTMLSelectElement>) => {
-    onChange?.(e.target.value);
+    onChange?.(e.target.value as T);
   };
 
-  const optionsList = useMemo(() => options?.map((opt: SelectOptions) => (
+  const optionsList = useMemo(() => options?.map((opt) => (
     <option key={opt.value} value={opt.value}>{opt.content}</option>
   )), [options]);
 

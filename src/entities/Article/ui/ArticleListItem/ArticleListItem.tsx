@@ -46,7 +46,8 @@ export const ArticleListItem = (props: ArticleListItemProps) => {
           <Text text={article.createdAt} />
         </div>
         <img className={cls.image} src={article.img} alt={article.title} />
-        {textBlock && <ArticleTextBlockComponent block={textBlock} className={cls.textBlock} />}
+        <Text title={article.title} className={cls.title} />
+        {textBlock && <ArticleTextBlockComponent block={textBlock} className={cls.textBlock} withoutTitleBlock />}
         <div className={cls.footer}>
           <Button onClick={onClickNavigate} theme={ButtonTheme.OUTLINE}>{t('Читать далее...')}</Button>
           <Text text={String(article.views)} />

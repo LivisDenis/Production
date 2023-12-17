@@ -26,8 +26,8 @@ export const CurrencySelect = (props: SelectCurrencyProps) => {
     label,
   } = props;
 
-  const onChangeCurrency = (value: string) => {
-    onChange?.(value as Currency);
+  const onChangeCurrency = (value: Currency) => {
+    onChange?.(value);
   };
 
   return (

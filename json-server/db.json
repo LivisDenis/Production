@@ -29,7 +29,7 @@
       "img": "https://www.comingsoon.net/wp-content/uploads/sites/3/2023/03/naruto-episodes-header.png",
       "views": 1022,
       "userId": 1,
-      "createdAt": "26.02.2022",
+      "createdAt": "26.02.2021",
       "type": [
         "IT"
       ],
@@ -99,9 +99,9 @@
       "title": "Kotlin news",
       "subtitle": "Что нового в Kotlin за 2022 год?",
       "img": "https://decode.kz/images/blog/652cfcc35ca0449611983946.jpg",
-      "views": 1022,
+      "views": 2032,
       "userId": 1,
-      "createdAt": "26.02.2022",
+      "createdAt": "12.04.2023",
       "type": [
         "IT"
       ],
@@ -123,9 +123,9 @@
       "title": "Python news",
       "subtitle": "Что нового в Python за 2022 год?",
       "img": "https://www.hocktraining.com/home/getpicturethumbnail/830",
-      "views": 1022,
+      "views": 10329,
       "userId": 1,
-      "createdAt": "26.02.2022",
+      "createdAt": "26.02.2019",
       "type": [
         "IT"
       ],
@@ -144,12 +144,12 @@
     },
     {
       "id": "4",
-      "title": "Kotlin news",
-      "subtitle": "Что нового в Kotlin за 2022 год?",
-      "img": "https://decode.kz/images/blog/652cfcc35ca0449611983946.jpg",
+      "title": "Ruby about",
+      "subtitle": "Что нового в Ruby за 2021 год?",
+      "img": "https://res.cloudinary.com/practicaldev/image/fetch/s--jvDLhx0b--/c_imagga_scale,f_auto,fl_progressive,h_420,q_auto,w_1000/https://dev-to-uploads.s3.amazonaws.com/i/cpcr5w0kgl6j94tss7n9.png",
       "views": 1022,
       "userId": 1,
-      "createdAt": "26.02.2022",
+      "createdAt": "26.06.2021",
       "type": [
         "IT"
       ],
@@ -171,9 +171,9 @@
       "title": "Python news",
       "subtitle": "Что нового в Python за 2022 год?",
       "img": "https://www.hocktraining.com/home/getpicturethumbnail/830",
-      "views": 1022,
+      "views": 153000,
       "userId": 1,
-      "createdAt": "26.02.2022",
+      "createdAt": "16.07.2023",
       "type": [
         "IT"
       ],
@@ -216,12 +216,12 @@
     },
     {
       "id": "7",
-      "title": "Python news",
-      "subtitle": "Что нового в Python за 2022 год?",
-      "img": "https://www.hocktraining.com/home/getpicturethumbnail/830",
-      "views": 1022,
+      "title": "Java news",
+      "subtitle": "Что нового в Java за 2019 год?",
+      "img": "https://www.glossary-internet.ru/upload/medialibrary/df1/df14db5f5137ae8edf70c9c871ac7b9d.png",
+      "views": 230356,
       "userId": 1,
-      "createdAt": "26.02.2022",
+      "createdAt": "26.04.2019",
       "type": [
         "IT"
       ],
@@ -243,9 +243,9 @@
       "title": "Kotlin news",
       "subtitle": "Что нового в Kotlin за 2022 год?",
       "img": "https://decode.kz/images/blog/652cfcc35ca0449611983946.jpg",
-      "views": 1022,
+      "views": 560,
       "userId": 1,
-      "createdAt": "26.02.2022",
+      "createdAt": "26.02.2018",
       "type": [
         "IT"
       ],
@@ -267,11 +267,12 @@
       "title": "Python news",
       "subtitle": "Что нового в Python за 2022 год?",
       "img": "https://www.hocktraining.com/home/getpicturethumbnail/830",
-      "views": 1022,
+      "views": 19356,
       "userId": 1,
-      "createdAt": "26.02.2022",
+      "createdAt": "26.08.2023",
       "type": [
-        "IT"
+        "IT",
+        "ECONOMICS"
       ],
       "blocks": [
         {
@@ -291,7 +292,7 @@
       "title": "Kotlin news",
       "subtitle": "Что нового в Kotlin за 2022 год?",
       "img": "https://decode.kz/images/blog/652cfcc35ca0449611983946.jpg",
-      "views": 1022,
+      "views": 345,
       "userId": 1,
       "createdAt": "26.02.2022",
       "type": [
@@ -315,11 +316,12 @@
       "title": "Python news",
       "subtitle": "Что нового в Python за 2022 год?",
       "img": "https://www.hocktraining.com/home/getpicturethumbnail/830",
-      "views": 1022,
+      "views": 235643,
       "userId": 1,
       "createdAt": "26.02.2022",
       "type": [
-        "IT"
+        "IT",
+        "SCIENCE"
       ],
       "blocks": [
         {
@@ -336,12 +338,12 @@
     },
     {
       "id": "12",
-      "title": "Kotlin news",
-      "subtitle": "Что нового в Kotlin за 2022 год?",
-      "img": "https://decode.kz/images/blog/652cfcc35ca0449611983946.jpg",
-      "views": 1022,
+      "title": "Java news",
+      "subtitle": "Что нового в Java за 2023 год?",
+      "img": "https://www.glossary-internet.ru/upload/medialibrary/df1/df14db5f5137ae8edf70c9c871ac7b9d.png",
+      "views": 45252,
       "userId": 1,
-      "createdAt": "26.02.2022",
+      "createdAt": "12.09.2023",
       "type": [
         "IT"
       ],
@@ -363,11 +365,11 @@
       "title": "Python news",
       "subtitle": "Что нового в Python за 2022 год?",
       "img": "https://www.hocktraining.com/home/getpicturethumbnail/830",
-      "views": 1022,
+      "views": 34435,
       "userId": 1,
       "createdAt": "26.02.2022",
       "type": [
-        "IT"
+        "POLITICS"
       ],
       "blocks": [
         {
@@ -384,12 +386,12 @@
     },
     {
       "id": "14",
-      "title": "Kotlin news",
-      "subtitle": "Что нового в Kotlin за 2022 год?",
-      "img": "https://decode.kz/images/blog/652cfcc35ca0449611983946.jpg",
-      "views": 1022,
+      "title": "JavaScript news",
+      "subtitle": "Что нового в JavaScript за 2022 год?",
+      "img": "https://www.keycdn.com/img/support/javascript.png",
+      "views": 56045,
       "userId": 1,
-      "createdAt": "26.02.2022",
+      "createdAt": "30.12.2022",
       "type": [
         "IT"
       ],
@@ -411,11 +413,11 @@
       "title": "Python news",
       "subtitle": "Что нового в Python за 2022 год?",
       "img": "https://www.hocktraining.com/home/getpicturethumbnail/830",
-      "views": 1022,
+      "views": 423451,
       "userId": 1,
-      "createdAt": "26.02.2022",
+      "createdAt": "26.05.2015",
       "type": [
-        "IT"
+        "SCIENCE"
       ],
       "blocks": [
         {
@@ -432,14 +434,16 @@
     },
     {
       "id": "16",
-      "title": "Kotlin news",
+      "title": "Language news",
       "subtitle": "Что нового в Kotlin за 2022 год?",
       "img": "https://decode.kz/images/blog/652cfcc35ca0449611983946.jpg",
-      "views": 1022,
+      "views": 23,
       "userId": 1,
-      "createdAt": "26.02.2022",
+      "createdAt": "26.12.2023",
       "type": [
-        "IT"
+        "IT",
+        "SCIENCE",
+        "POLITICS"
       ],
       "blocks": [
         {
@@ -459,11 +463,11 @@
       "title": "Python news",
       "subtitle": "Что нового в Python за 2022 год?",
       "img": "https://www.hocktraining.com/home/getpicturethumbnail/830",
-      "views": 1022,
+      "views": 2362,
       "userId": 1,
-      "createdAt": "26.02.2022",
+      "createdAt": "23.08.2022",
       "type": [
-        "IT"
+        "SCIENCE"
       ],
       "blocks": [
         {
@@ -480,14 +484,15 @@
     },
     {
       "id": "18",
-      "title": "Kotlin news",
+      "title": "Kotlin SCIENCE",
       "subtitle": "Что нового в Kotlin за 2022 год?",
       "img": "https://decode.kz/images/blog/652cfcc35ca0449611983946.jpg",
-      "views": 1022,
+      "views": 1022312,
       "userId": 1,
       "createdAt": "26.02.2022",
       "type": [
-        "IT"
+        "IT",
+        "SCIENCE"
       ],
       "blocks": [
         {
@@ -509,7 +514,7 @@
       "img": "https://www.hocktraining.com/home/getpicturethumbnail/830",
       "views": 1022,
       "userId": 1,
-      "createdAt": "26.02.2022",
+      "createdAt": "26.10.2023",
       "type": [
         "IT"
       ],
@@ -528,14 +533,14 @@
     },
     {
       "id": "20",
-      "title": "Kotlin news",
+      "title": "Kotlin economics",
       "subtitle": "Что нового в Kotlin за 2022 год?",
       "img": "https://decode.kz/images/blog/652cfcc35ca0449611983946.jpg",
-      "views": 1022,
+      "views": 32423,
       "userId": 1,
       "createdAt": "26.02.2022",
       "type": [
-        "IT"
+        "ECONOMICS"
       ],
       "blocks": [
         {
@@ -552,14 +557,14 @@
     },
     {
       "id": "21",
-      "title": "Python news",
+      "title": "Politics Python",
       "subtitle": "Что нового в Python за 2022 год?",
       "img": "https://www.hocktraining.com/home/getpicturethumbnail/830",
-      "views": 1022,
+      "views": 2351,
       "userId": 1,
-      "createdAt": "26.02.2022",
+      "createdAt": "26.02.2017",
       "type": [
-        "IT"
+        "POLITICS"
       ],
       "blocks": [
         {
