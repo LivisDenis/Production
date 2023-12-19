@@ -4,15 +4,15 @@ import { loginReducer } from 'features/AuthByUsername/model/slice/loginSlice';
 import { ReducersList } from 'shared/lib/components/DynamicModuleLoader';
 import { profileReducer } from 'pages/ProfilePage';
 import { articleDetailsReducer } from 'entities/Article';
-import { articleDetailsCommentsReducer } from 'pages/ArticleDetailsPage';
 import { addCommentFromReducer } from 'features/addCommentForm';
 import { articlesPageReducer } from 'pages/ArticlesPage';
+import { articlesDetailsPageReducer } from 'pages/ArticleDetailsPage';
 
 const defaultAsyncReducers: ReducersList = {
   loginUser: loginReducer,
   profile: profileReducer,
   articleDetails: articleDetailsReducer,
-  articleDetailsComments: articleDetailsCommentsReducer,
+  articleDetailsPage: articlesDetailsPageReducer,
   addCommentForm: addCommentFromReducer,
   articlesPage: articlesPageReducer,
 };
