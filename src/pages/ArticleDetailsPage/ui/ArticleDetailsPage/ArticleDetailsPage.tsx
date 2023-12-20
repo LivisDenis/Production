@@ -10,19 +10,20 @@ import { useCallback, useEffect } from 'react';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader';
 import { AddCommentForm } from 'features/addCommentForm';
 import { Page } from 'widgets/Page/Page';
-import { addCommentForArticle } from '../module/services/addCommentForArticle/addCommentForArticle';
-import { fetchCommentsByArticleId } from '../module/services/fetchCommentsArticleById/fetchCommentsByArticleId';
-import { getArticleCommentsIsLoading } from '../module/selectors/comments';
-import { getArticleComments } from '../module/slice/articleDetailsCommentsSlice';
+import { addCommentForArticle } from '../../module/services/addCommentForArticle/addCommentForArticle';
+import { fetchCommentsByArticleId } from '../../module/services/fetchCommentsArticleById/fetchCommentsByArticleId';
+import { getArticleCommentsIsLoading } from '../../module/selectors/comments';
+import { getArticleComments } from '../../module/slice/articleDetailsCommentsSlice';
 import {
   getArticleRecommendations,
-} from '../module/slice/articleDetailsRecommendationsSlice';
+} from '../../module/slice/articleDetailsRecommendationsSlice';
 import {
   fetchArticlesRecommendations,
-} from '../module/services/fetchArticlesRecommendations/fetchArticlesRecommendations';
+} from '../../module/services/fetchArticlesRecommendations/fetchArticlesRecommendations';
 import cls from './ArticleDetailsPage.module.scss';
-import { getArticleRecommendationsIsLoading } from '../module/selectors/recommendations';
-import { articlesDetailsPageReducer } from '../module/slice';
+import { getArticleRecommendationsIsLoading } from '../../module/selectors/recommendations';
+import { articlesDetailsPageReducer } from '../../module/slice';
+import { ArticleDetailsPageHeader } from '../ArticleDetailsPageHeader/ArticleDetailsPageHeader';
 
 interface ArticleDetailsPageProps {
     className?: string
@@ -55,15 +56,16 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
 
   if (!id) {
     return (
-      <div className={classNames('', {}, [className])}>
+      <Page className={classNames('', {}, [className])}>
         <Text title={t('Статья не найдена')} align={TextAlign.CENTER} />
-      </div>
+      </Page>
     );
   }
 
   return (
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
       <Page className={classNames('', {}, [className])}>
+        <ArticleDetailsPageHeader />
         <ArticleDetails id={id} />
         <Text className={cls.comment_title} title={t('Рекомендации')} />
         <ArticleList

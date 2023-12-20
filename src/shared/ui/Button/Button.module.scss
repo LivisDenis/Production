@@ -26,6 +26,10 @@
   border: 1px solid var(--main-font-color);
   background: none;
   color: var(--main-font-color);
+
+  &:hover {
+    background-color: var(--card-bg);
+  }
 }
 
 .background {

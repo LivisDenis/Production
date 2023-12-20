@@ -4,6 +4,9 @@
   width: var(--sidebar-width);
   background-color: var(--main-color);
   transition: width 0.2s;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .collapsed {
@@ -14,4 +17,17 @@
   display: flex;
   flex-direction: column;
   gap: 5px;
+}
+
+.create {
+  text-align: center;
+  margin-bottom: 20px;
+  background-color: var(--secondary-color);
+  color: #FDFDFD;
+  padding: 5px 30px;
+  border-radius: 6px;
+
+  &:hover {
+    opacity: 0.9;
+  }
 }
