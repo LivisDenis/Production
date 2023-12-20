@@ -5,7 +5,7 @@ import { StoreDecorator } from 'shared/config/storybook/decorators/StoreDecorato
 import { Skeleton } from './Skeleton';
 
 export default {
-  title: 'features/Skeleton',
+  title: 'shared/Skeleton',
   component: Skeleton,
   argTypes: {
     backgroundColor: { control: 'color' },
@@ -15,9 +15,15 @@ export default {
 const Template: ComponentStory<typeof Skeleton> = (args) => <Skeleton {...args} />;
 
 export const Normal = Template.bind({});
-Normal.args = {};
+Normal.args = {
+  height: 30,
+  width: 300,
+};
 Normal.decorators = [StoreDecorator({})];
 
 export const Dark = Template.bind({});
-Dark.args = {};
+Dark.args = {
+  height: 30,
+  width: 300,
+};
 Dark.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator({})];

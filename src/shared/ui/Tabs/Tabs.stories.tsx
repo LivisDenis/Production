@@ -5,7 +5,7 @@ import { StoreDecorator } from 'shared/config/storybook/decorators/StoreDecorato
 import { Tabs } from './Tabs';
 
 export default {
-  title: 'features/Tabs',
+  title: 'shared/Tabs',
   component: Tabs,
   argTypes: {
     backgroundColor: { control: 'color' },
@@ -15,9 +15,33 @@ export default {
 const Template: ComponentStory<typeof Tabs> = (args) => <Tabs {...args} />;
 
 export const Normal = Template.bind({});
-Normal.args = {};
+Normal.args = {
+  value: 'test 1',
+  tabs: [
+    {
+      value: 'test 2',
+      content: 'test 2',
+    },
+    {
+      value: 'test 3',
+      content: 'test 3',
+    },
+  ],
+};
 Normal.decorators = [StoreDecorator({})];
 
 export const Dark = Template.bind({});
-Dark.args = {};
+Dark.args = {
+  value: 'test 1',
+  tabs: [
+    {
+      value: 'test 2',
+      content: 'test 2',
+    },
+    {
+      value: 'test 3',
+      content: 'test 3',
+    },
+  ],
+};
 Dark.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator({})];
