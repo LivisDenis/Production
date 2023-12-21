@@ -42,7 +42,9 @@ const ArticlesPage = (props: ArticlesPageProps) => {
   };
 
   useEffect(() => {
-    dispatch(initArticlesPage(searchParams));
+    if (__PROJECT__ !== 'storybook') {
+      dispatch(initArticlesPage(searchParams));
+    }
     // eslint-disable-next-line
   }, [dispatch]);
 

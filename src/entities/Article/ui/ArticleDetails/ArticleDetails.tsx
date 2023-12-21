@@ -41,7 +41,9 @@ export const ArticleDetails = (props: ArticleDetailsProps) => {
   const error = useSelector(getArticleDetailsError);
 
   useEffect(() => {
-    dispatch(fetchArticleById(id));
+    if (__PROJECT__ !== 'storybook') {
+      dispatch(fetchArticleById(id));
+    }
   }, [dispatch, id]);
 
   const renderBlock = useCallback((block: ArticleBlock) => {

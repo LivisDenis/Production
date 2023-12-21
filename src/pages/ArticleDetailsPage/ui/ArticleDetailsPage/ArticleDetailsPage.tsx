@@ -46,8 +46,10 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
   const commentsIsLoading = useSelector(getArticleCommentsIsLoading);
 
   useEffect(() => {
-    dispatch(fetchCommentsByArticleId(id));
-    dispatch(fetchArticlesRecommendations());
+    if (__PROJECT__ !== 'storybook') {
+      dispatch(fetchCommentsByArticleId(id));
+      dispatch(fetchArticlesRecommendations());
+    }
   }, [dispatch, id]);
 
   const onSendComment = useCallback((text: string) => {

@@ -57,9 +57,9 @@ NormalViewBig.args = {
 };
 NormalViewBig.decorators = [StoreDecorator({})];
 
-export const Dark = Template.bind({
+export const Dark = Template.bind({});
+Dark.args = {
   article,
   view: ArticleView.SMALL,
-});
-Dark.args = {};
+};
 Dark.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator({})];
