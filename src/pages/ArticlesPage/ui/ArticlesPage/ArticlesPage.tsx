@@ -38,7 +38,9 @@ const ArticlesPage = (props: ArticlesPageProps) => {
   const [searchParams] = useSearchParams();
 
   const onLoadNextPart = () => {
-    dispatch(fetchNextArticlesPage());
+    if (__PROJECT__ !== 'storybook') {
+      dispatch(fetchNextArticlesPage());
+    }
   };
 
   useEffect(() => {
