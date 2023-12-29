@@ -3,11 +3,10 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import { Input } from 'shared/ui/Input/Input';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader';
-import { addCommentFromReducer } from 'features/addCommentForm';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useSelector } from 'react-redux';
-import { addCommentFromActions } from '../../model/slice/addCommentFormSlice';
+import { addCommentFromReducer, addCommentFromActions } from '../../model/slice/addCommentFormSlice';
 import cls from './AddCommentForm.module.scss';
 import { getAddCommentFormText } from '../../model/selectors/addCommentFormSelectors';
 

@@ -1,11 +1,11 @@
 import { memo } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
-import { SidebarLink } from 'widgets/Sidebar/ui/SidebarLink/SidebarLink';
-import { getSidebarLinks } from 'widgets/Sidebar/model/selectors/getSidebarLinks';
 import { useSelector } from 'react-redux';
 import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import { useTranslation } from 'react-i18next';
+import { getSidebarLinks } from '../../model/selectors/getSidebarLinks';
+import { SidebarLink } from '../SidebarLink/SidebarLink';
 import cls from './Sidebar.module.scss';
 
 interface SidebarProps {
