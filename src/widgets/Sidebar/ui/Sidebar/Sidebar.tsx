@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux';
 import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import { useTranslation } from 'react-i18next';
+import { VStack } from 'shared/ui/Stack';
 import { getSidebarLinks } from '../../model/selectors/getSidebarLinks';
 import { SidebarLink } from '../SidebarLink/SidebarLink';
 import cls from './Sidebar.module.scss';
@@ -17,13 +18,13 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
   const { t } = useTranslation();
 
   return (
-    <div data-testid="sidebar" className={classNames(cls.Sidebar, {}, [className])}>
-      <div className={cls.links}>
+    <VStack justify="between" data-testid="sidebar" className={classNames(cls.Sidebar, {}, [className])}>
+      <VStack align="start" gap="8" max>
         {sidebarLinks.map((link) => <SidebarLink key={link.path} link={link} />)}
-      </div>
+      </VStack>
       <AppLink className={cls.create} theme={AppLinkTheme.PRIMARY} to={RoutePath.article_create}>
         {t('Создать статью')}
       </AppLink>
-    </div>
+    </VStack>
   );
 });

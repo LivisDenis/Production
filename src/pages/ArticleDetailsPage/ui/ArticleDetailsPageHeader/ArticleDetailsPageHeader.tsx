@@ -4,6 +4,7 @@ import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import { useNavigate, useParams } from 'react-router-dom';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import { useSelector } from 'react-redux';
+import { HStack } from 'shared/ui/Stack';
 import cls from './ArticleDetailsPageHeader.module.scss';
 import { getCanEditArticle } from '../../module/selectors/article';
 
@@ -25,7 +26,7 @@ export const ArticleDetailsPageHeader = (props: ArticleDetailsPageHeaderProps) =
   };
 
   return (
-    <div className={classNames(cls.ArticleDetailsPageHeader, {}, [className])}>
+    <HStack justify="between" className={classNames(cls.ArticleDetailsPageHeader, {}, [className])}>
       {canEdit
           && (
           <Button
@@ -36,6 +37,6 @@ export const ArticleDetailsPageHeader = (props: ArticleDetailsPageHeaderProps) =
             {t('Редактировать')}
           </Button>
           )}
-    </div>
+    </HStack>
   );
 };

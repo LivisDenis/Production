@@ -7,6 +7,7 @@ import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import { LoginModal } from 'features/AuthByUsername';
 import { useDispatch, useSelector } from 'react-redux';
 import { getAuthData, userActions } from 'entities/User';
+import { HStack } from 'shared/ui/Stack';
 import cls from './Navbar.module.scss';
 
 interface NavbarProps {
@@ -32,18 +33,16 @@ export const Navbar = memo(({ className }: NavbarProps) => {
   };
 
   return (
-    <div className={classNames(cls.Navbar, {}, [className])}>
-      <div className={cls.links}>
-        {!authData && (
+    <HStack gap="16" justify="end" className={classNames(cls.Navbar, {}, [className])}>
+      {!authData && (
         <>
           {isOpen && <LoginModal isOpen={isOpen} onClose={onCloseModal} />}
           <Button onClick={onOpenModal} theme={ButtonTheme.BACKGROUND}>{t('Войти')}</Button>
         </>
-        )}
-        {authData && <Button onClick={onLogout} theme={ButtonTheme.BACKGROUND}>{t('Выйти')}</Button>}
-        <ThemeSwitcher />
-        <LangSwitcher />
-      </div>
-    </div>
+      )}
+      {authData && <Button onClick={onLogout} theme={ButtonTheme.BACKGROUND}>{t('Выйти')}</Button>}
+      <ThemeSwitcher />
+      <LangSwitcher />
+    </HStack>
   );
 });

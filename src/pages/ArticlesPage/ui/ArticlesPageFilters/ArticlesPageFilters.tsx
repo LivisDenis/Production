@@ -10,6 +10,7 @@ import { SortOrder } from 'shared/types';
 import { useSelector } from 'react-redux';
 import { Input } from 'shared/ui/Input/Input';
 import { useDebounce } from 'shared/lib/hooks/useDebounce/useDebounce';
+import { HStack } from 'shared/ui/Stack';
 import { fetchArticlesList } from '../../model/services/fetchArticlesList/fetchArticlesList';
 import { articlesPageActions } from '../../model/slice/articlesPageSlice';
 import cls from './ArticlesPageFilters.module.scss';
@@ -73,7 +74,7 @@ export const ArticlesPageFilters = (props: ArticlesPageFiltersProps) => {
   return (
     <div className={classNames(cls.ArticlesPageFilters, {}, [className])}>
       <Input className={cls.search} placeholder={t('Поиск')} onChange={onChangeSearch} value={search} />
-      <div className={cls.sortWrapper}>
+      <HStack gap="24" justify="between" align="end">
         <ArticleSortSelector
           onChangeSort={onChangeSort}
           onChangeOrder={onChangeOrder}
@@ -84,7 +85,7 @@ export const ArticlesPageFilters = (props: ArticlesPageFiltersProps) => {
           view={view}
           onViewClick={onChangeView}
         />
-      </div>
+      </HStack>
       <ArticleTypeTabs
         className={cls.tabs}
         type={type}

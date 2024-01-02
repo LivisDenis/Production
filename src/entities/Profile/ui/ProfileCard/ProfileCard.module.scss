@@ -11,23 +11,13 @@
 }
 
 .content {
-  display: flex;
   flex-wrap: wrap;
-  gap: 20px;
 }
 
 .buttons {
-  display: flex;
-  justify-content: end;
-  gap: 30px;
   margin-top: 25px;
   margin-right: 40px;
   margin-left: auto;
-}
-
-.with_avatar {
-  display: flex;
-  gap: 20px;
 }
 
 .loading,

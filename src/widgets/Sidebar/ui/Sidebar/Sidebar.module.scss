@@ -4,19 +4,10 @@
   width: var(--sidebar-width);
   background-color: var(--main-color);
   transition: width 0.2s;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
 }
 
 .collapsed {
   width: var(--sidebar-width-collapsed);
-}
-
-.links {
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
 }
 
 .create {

@@ -6,6 +6,7 @@ import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useSelector } from 'react-redux';
 import { Text, TextAlign, TextTheme } from 'shared/ui/Text/Text';
 import { Avatar } from 'shared/ui/Avatar/Avatar';
+import { VStack, HStack } from 'shared/ui/Stack';
 import {
   getArticleDetailsData,
   getArticleDetailsError,
@@ -76,7 +77,7 @@ export const ArticleDetails = (props: ArticleDetailsProps) => {
         : (
           <div className={classNames(cls.ArticleDetails, {}, [className])}>
             <Text title={article?.title} subtitle={article?.subtitle} />
-            <div className={cls.info_block}>
+            <HStack justify="between" className={cls.info_block}>
               <div className={cls.author}>
                 <Avatar size={20} borderRadius="50%" src={article?.user.avatar} />
                 {article?.user.username}
@@ -87,11 +88,11 @@ export const ArticleDetails = (props: ArticleDetailsProps) => {
                 ·
                 <span>{`${article?.views} просмотров`}</span>
               </div>
-            </div>
+            </HStack>
             <img className={cls.image} src={article?.img} alt={article?.img} />
-            <div className={cls.content_block}>
+            <VStack gap="24">
               {article?.blocks.map(renderBlock)}
-            </div>
+            </VStack>
           </div>
         )}
     </DynamicModuleLoader>

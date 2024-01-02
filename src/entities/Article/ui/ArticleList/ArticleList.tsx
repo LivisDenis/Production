@@ -1,5 +1,6 @@
 import { HTMLAttributeAnchorTarget } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
+import { HStack } from 'shared/ui/Stack';
 import { Article, ArticleView } from '../../model/types/article';
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
 import { ArticleListItemSkeleton } from '../ArticleListItem/ArticleListItemSkeleton';
@@ -31,11 +32,11 @@ export const ArticleList = (props: ArticleListProps) => {
   );
 
   return (
-    <div className={classNames(cls.ArticleList, {}, [className])}>
+    <HStack gap="16" className={classNames(cls.ArticleList, {}, [className])}>
       {articles?.length
         ? articles.map(renderArticle)
         : null}
       {isLoading && getSkeletons(view)}
-    </div>
+    </HStack>
   );
 };

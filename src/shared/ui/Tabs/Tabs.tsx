@@ -28,7 +28,7 @@ export const Tabs = <T extends string>(props: TabsProps<T>) => {
     <div className={classNames(cls.Tabs, {}, [className])}>
       {tabs.map((tab) => (
         <Card
-          theme={value === tab.value ? CardTheme.OUTLINE : CardTheme.NORMAL}
+          theme={value === tab.value ? CardTheme.NORMAL : CardTheme.OUTLINE}
           className={cls.tab}
           key={tab.value}
           onClick={onChangeTab(tab.value)}
