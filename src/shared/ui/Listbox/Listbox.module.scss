@@ -1,0 +1,54 @@
+.btn {
+  background-color: var(--listbox-bg);
+  border-radius: 7px;
+  border: none;
+  padding: 8px 12px;
+  color: var(--main-font-color);
+  cursor: pointer;
+
+  &:hover {
+    opacity: 0.7;
+  }
+}
+
+.optionsWrapper {
+  position: relative;
+}
+
+.options {
+  position: absolute;
+  background-color: var(--listbox-bg);
+  border-radius: 7px;
+}
+
+.optionsTop {
+  bottom: calc(100% + 5px);
+}
+
+.optionsBottom {
+  top: 35px;
+}
+
+.option {
+  padding: 7px;
+  cursor: pointer;
+  border-radius: 7px;
+
+  &:hover {
+    background-color: var(--listbox-hover);
+  }
+}
+
+.activeOption {
+  background-color: var(--listbox-hover);
+}
+
+.unavailable {
+  opacity: 0.5;
+}
+
+.label {
+  margin-bottom: 4px;
+  color: var(--secondary-font-color);
+  font: var(--font-xs);
+}

@@ -1,4 +1,4 @@
-import { memo } from 'react';
+import { memo, useMemo } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useSelector } from 'react-redux';
 import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink';
@@ -17,10 +17,14 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
   const sidebarLinks = useSelector(getSidebarLinks);
   const { t } = useTranslation();
 
+  const linkList = useMemo(() => sidebarLinks.map((link) => (
+    <SidebarLink key={link.path} link={link} />
+  )), [sidebarLinks]);
+
   return (
     <VStack justify="between" data-testid="sidebar" className={classNames(cls.Sidebar, {}, [className])}>
       <VStack align="start" gap="8" max>
-        {sidebarLinks.map((link) => <SidebarLink key={link.path} link={link} />)}
+        {linkList}
       </VStack>
       <AppLink className={cls.create} theme={AppLinkTheme.PRIMARY} to={RoutePath.article_create}>
         {t('Создать статью')}

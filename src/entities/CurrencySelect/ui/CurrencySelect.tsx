@@ -1,5 +1,5 @@
 import { classNames } from 'shared/lib/classNames/classNames';
-import { Select } from 'shared/ui/Select/Select';
+import { Listbox } from 'shared/ui/Listbox/Listbox';
 import { Currency } from '../model/types/currency';
 
 interface SelectCurrencyProps {
@@ -31,13 +31,14 @@ export const CurrencySelect = (props: SelectCurrencyProps) => {
   };
 
   return (
-    <Select
+    <Listbox
       className={classNames('', {}, [className])}
       onChange={onChangeCurrency}
       readonly={readonly}
       options={options}
       value={value}
       label={label}
+      direction="top"
     />
   );
 };
