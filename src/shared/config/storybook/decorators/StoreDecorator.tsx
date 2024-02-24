@@ -2,11 +2,11 @@ import { Story } from '@storybook/react';
 import { StateSchema, StoreProvider } from 'app/providers/StoreProvider';
 import { loginReducer } from 'features/AuthByUsername/model/slice/loginSlice';
 import { ReducersList } from 'shared/lib/components/DynamicModuleLoader';
-import { profileReducer } from 'pages/ProfilePage';
 import { articleDetailsReducer } from 'entities/Article';
 import { addCommentFromReducer } from 'features/addCommentForm';
 import { articlesPageReducer } from 'pages/ArticlesPage';
 import { articlesDetailsPageReducer } from 'pages/ArticleDetailsPage';
+import { profileReducer } from 'features/editableProfileCard';
 
 const defaultAsyncReducers: ReducersList = {
   loginUser: loginReducer,

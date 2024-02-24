@@ -2,17 +2,17 @@ import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { ThemeDecorator } from 'shared/config/storybook/decorators/ThemeDecorator';
 import { Theme } from 'app/providers/ThemeProvider';
 import { StoreDecorator } from 'shared/config/storybook/decorators/StoreDecorator';
-import { Flex } from './Flex';
+import { EditableProfileCard } from './EditableProfileCard';
 
 export default {
-  title: 'features/Flex',
-  component: Flex,
+  title: 'features/EditableProfileCard',
+  component: EditableProfileCard,
   argTypes: {
     backgroundColor: { control: 'color' },
   },
-} as ComponentMeta<typeof Flex>;
+} as ComponentMeta<typeof EditableProfileCard>;
 
-const Template: ComponentStory<typeof Flex> = (args) => <Flex {...args} />;
+const Template: ComponentStory<typeof EditableProfileCard> = (args) => <EditableProfileCard {...args} />;
 
 export const Normal = Template.bind({});
 Normal.args = {};
