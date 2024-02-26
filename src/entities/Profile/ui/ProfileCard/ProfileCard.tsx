@@ -76,8 +76,20 @@ export const ProfileCard = memo((props: ProfileCardProps) => {
         <div>
           <Text subtitle={t('Личные данные')} className={cls.subtitle} />
           <HStack gap="16" className={cls.content}>
-            <Input label={t('Имя')} value={data?.firstname} onChange={onChangeFirstname} readOnly={readonly} />
-            <Input label={t('Фамилия')} value={data?.lastname} onChange={onChangeLastname} readOnly={readonly} />
+            <Input
+              data-testid="EditableProfileCard.Firstname"
+              label={t('Имя')}
+              value={data?.firstname}
+              onChange={onChangeFirstname}
+              readOnly={readonly}
+            />
+            <Input
+              data-testid="EditableProfileCard.Lastname"
+              label={t('Фамилия')}
+              value={data?.lastname}
+              onChange={onChangeLastname}
+              readOnly={readonly}
+            />
             <Input label={t('Дата рождения')} value={data?.age} onChange={onChangeAge} readOnly={readonly} />
             <Input label={t('Город')} value={data?.city} onChange={onChangeCity} readOnly={readonly} />
           </HStack>
@@ -94,11 +106,11 @@ export const ProfileCard = memo((props: ProfileCardProps) => {
       {canEdit && (
       <HStack gap="24" justify="end" className={cls.buttons}>
         {readonly
-          ? <Button onClick={onEdit} theme={ButtonTheme.OUTLINE}>{t('Редактировать')}</Button>
+          ? <Button data-testid="EditableProfileCard.Edit" onClick={onEdit} theme={ButtonTheme.OUTLINE}>{t('Редактировать')}</Button>
           : (
             <>
-              <Button onClick={onCancelEdit} theme={ButtonTheme.OUTLINE}>{t('Отмена')}</Button>
-              <Button onClick={onSaveEdit}>{t('Сохранить')}</Button>
+              <Button data-testid="EditableProfileCard.Cancel" onClick={onCancelEdit} theme={ButtonTheme.OUTLINE}>{t('Отмена')}</Button>
+              <Button data-testid="EditableProfileCard.Save" onClick={onSaveEdit}>{t('Сохранить')}</Button>
             </>
           )}
       </HStack>

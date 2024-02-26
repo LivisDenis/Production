@@ -3,24 +3,25 @@ import { ReactNode } from 'react';
 import { render } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
 import { StateSchema, StoreProvider } from 'app/providers/StoreProvider';
-import { DeepPartial } from '@reduxjs/toolkit';
+import { ReducersMapObject } from '@reduxjs/toolkit';
 import i18nForTests from '../../../config/i18n/i18nForTests';
 
 interface ComponentRenderOptions {
     route?: string
     initialState?: DeepPartial<StateSchema>
+    asyncReducers?: DeepPartial<ReducersMapObject<StateSchema>>
 }
 
 export const ComponentRender = (children: ReactNode, options: ComponentRenderOptions = {}) => {
-  const { route = '/', initialState } = options;
+  const { route = '/', initialState, asyncReducers } = options;
 
   render(
-    <StoreProvider initialState={initialState}>
-      <MemoryRouter initialEntries={[route]}>
+    <MemoryRouter initialEntries={[route]}>
+      <StoreProvider asyncReducers={asyncReducers} initialState={initialState}>
         <I18nextProvider i18n={i18nForTests}>
           {children}
         </I18nextProvider>
-      </MemoryRouter>
-    </StoreProvider>,
+      </StoreProvider>
+    </MemoryRouter>,
   );
 };

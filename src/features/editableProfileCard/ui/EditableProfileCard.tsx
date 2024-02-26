@@ -20,7 +20,7 @@ import { profileActions, profileReducer } from '../model/slice/profileSlice';
 import { fetchProfileData } from '../model/services/fetchProfileData/fetchProfileData';
 
 interface EditableProfileCardProps {
-    id?: string
+    id: string
 }
 
 const reducers: ReducersList = {
@@ -50,8 +50,10 @@ export const EditableProfileCard = (props: EditableProfileCardProps) => {
   };
 
   useEffect(() => {
-    if (id) {
-      dispatch(fetchProfileData(id));
+    if (__PROJECT__ !== 'storybook' && __PROJECT__ !== 'jest') {
+      if (id) {
+        dispatch(fetchProfileData(id));
+      }
     }
   }, [dispatch, id]);
 
@@ -101,6 +103,7 @@ export const EditableProfileCard = (props: EditableProfileCardProps) => {
       {validateErrors?.length && validateErrors.map((err) => (
         <Text
           key={err}
+          data-testid="EditableProfileCard.Error"
           theme={TextTheme.ERROR}
           text={validateErrorsTranslate[err]}
         />
