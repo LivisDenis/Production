@@ -6,8 +6,13 @@ import { useTranslation } from 'react-i18next';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import { LoginModal } from 'features/AuthByUsername';
 import { useDispatch, useSelector } from 'react-redux';
-import { getAuthData, userActions } from 'entities/User';
+import {
+  getAuthData, isUserAdmin, isUserManager, userActions,
+} from 'entities/User';
 import { HStack } from 'shared/ui/Stack';
+import { AppLink } from 'shared/ui/AppLink/AppLink';
+import { RoutePath } from 'shared/config/routeConfig/routeConfig';
+import { useNavigate } from 'react-router-dom';
 import cls from './Navbar.module.scss';
 
 interface NavbarProps {
@@ -17,8 +22,13 @@ interface NavbarProps {
 export const Navbar = memo(({ className }: NavbarProps) => {
   const [isOpen, setIsOpen] = useState(false);
   const { t } = useTranslation();
+  const navigate = useNavigate();
   const authData = useSelector(getAuthData);
   const dispatch = useDispatch();
+  const isAdmin = useSelector(isUserAdmin);
+  const isManager = useSelector(isUserManager);
+
+  const hasRequiredRole = isManager || isAdmin;
 
   const onCloseModal = () => {
     setIsOpen(false);
@@ -30,10 +40,14 @@ export const Navbar = memo(({ className }: NavbarProps) => {
 
   const onLogout = () => {
     dispatch(userActions.logout());
+    navigate(RoutePath.articles);
   };
 
   return (
     <HStack gap="16" justify="end" className={classNames(cls.Navbar, {}, [className])}>
+      {hasRequiredRole && (
+      <AppLink to={RoutePath.admin_panel}>{t('Админ панель')}</AppLink>
+      )}
       {!authData && (
         <>
           {isOpen && <LoginModal isOpen={isOpen} onClose={onCloseModal} />}

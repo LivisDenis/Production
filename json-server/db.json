@@ -689,14 +689,21 @@
       "id": 1,
       "username": "admin",
       "password": "123",
-      "role": "ADMIN",
+      "roles": ["ADMIN", "MANAGER"],
       "avatar": "https://wallpapers.com/images/featured/cute-naruto-jtmjd4ifiqi7a48s.jpg"
     },
     {
       "id": 2,
       "username": "user",
       "password": "123",
-      "role": "USER",
+      "roles": ["USER"],
+      "avatar": "https://artjapan.ru/wp-content/uploads/2022/01/6d9834b8e903b9518dc5f74e33050283.jpg"
+    },
+    {
+      "id": 3,
+      "username": "manager",
+      "password": "123",
+      "roles": ["MANAGER"],
       "avatar": "https://artjapan.ru/wp-content/uploads/2022/01/6d9834b8e903b9518dc5f74e33050283.jpg"
     }
   ],
@@ -721,6 +728,17 @@
       "country": "USA",
       "city": "New York",
       "username": "user",
+      "avatar": "https://artjapan.ru/wp-content/uploads/2022/01/6d9834b8e903b9518dc5f74e33050283.jpg"
+    },
+    {
+      "id": 3,
+      "firstname": "manager",
+      "lastname": "Negro",
+      "age": 25,
+      "currency": "USD",
+      "country": "USA",
+      "city": "New York",
+      "username": "manager",
       "avatar": "https://artjapan.ru/wp-content/uploads/2022/01/6d9834b8e903b9518dc5f74e33050283.jpg"
     }
   ]
