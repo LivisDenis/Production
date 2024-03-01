@@ -7,7 +7,7 @@ import { useSelector } from 'react-redux';
 import { getAuthData } from 'entities/User';
 import { Text, TextTheme } from 'shared/ui/Text/Text';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader';
-import { ValidateProfileErrors } from '../model/types/editableProfileCardSchema';
+import { ValidateProfileErrors } from '../model/consts/editableProfileCardConsts';
 import { updateProfileData } from '../model/services/updateProfileData/updateProfileData';
 import { getProfileForm } from '../model/selectors/getProfileForm/getProfileForm';
 import { getProfileReadonly } from '../model/selectors/getProfileReadonly/getProfileReadonly';

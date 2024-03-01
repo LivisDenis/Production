@@ -4,8 +4,8 @@ import { useTranslation } from 'react-i18next';
 import { Select, SelectOptions } from 'shared/ui/Select/Select';
 import { SortOrder } from 'shared/types';
 import { HStack } from 'shared/ui/Stack';
+import { ArticleSortField } from '../../model/consts/articleConsts';
 import cls from './ArticleSortSelector.module.scss';
-import { ArticleSortField } from '../../model/types/article';
 
 interface ArticleSortSelectorProps {
     className?: string

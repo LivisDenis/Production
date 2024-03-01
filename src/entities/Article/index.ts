@@ -1,6 +1,4 @@
-export {
-  Article, ArticleView, ArticleType, ArticleSortField,
-} from './model/types/article';
+export type { Article } from './model/types/article';
 export type { ArticleDetailsSchema } from './model/types/articleDetailsSchema';
 export { getArticleDetailsData } from './model/selectors/getArticleDetails/getArticleDetails';
 export { ArticleDetails } from './ui/ArticleDetails/ArticleDetails';
@@ -10,3 +8,4 @@ export { ArticleSortSelector } from './ui/ArticleSortSelector/ArticleSortSelecto
 export { ArticleTypeTabs } from './ui/ArticleTypeTabs/ArticleTypeTabs';
 export { articleDetailsReducer } from './model/slice/articleDetailsSlice';
 export { fetchArticleById } from './model/services/fetchArticleById/fetchArticleById';
+export { ArticleType, ArticleSortField, ArticleView } from './model/consts/articleConsts';
