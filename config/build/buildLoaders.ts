@@ -3,7 +3,7 @@ import { BuildOptions } from './types/config';
 import { buildCssLoader } from './loaders/buildCssLoader';
 import { buildBabelLoader } from './loaders/buildBabelLoader';
 
-export function buildLoaders({ isDev }: BuildOptions): RuleSetRule[] {
+export function buildLoaders(options: BuildOptions): RuleSetRule[] {
   const svgLoader = {
     test: /\.svg$/,
     use: ['@svgr/webpack'],
@@ -18,21 +18,16 @@ export function buildLoaders({ isDev }: BuildOptions): RuleSetRule[] {
     ],
   };
 
-  const cssLoader = buildCssLoader(isDev);
+  const cssLoader = buildCssLoader(options.isDev);
 
-  const babelLoader = buildBabelLoader(isDev);
-
-  const typescriptLoader = {
-    test: /\.tsx?$/,
-    use: 'ts-loader',
-    exclude: /node_modules/,
-  };
+  const codeBabelLoader = buildBabelLoader({ ...options, isTsx: false });
+  const tsxCodeBabelLoader = buildBabelLoader({ ...options, isTsx: true });
 
   return [
     svgLoader,
     fileLoader,
-    babelLoader,
-    typescriptLoader,
+    codeBabelLoader,
+    tsxCodeBabelLoader,
     cssLoader,
   ];
 }
