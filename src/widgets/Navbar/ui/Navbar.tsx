@@ -13,6 +13,7 @@ import { HStack } from 'shared/ui/Stack';
 import { AppLink } from 'shared/ui/AppLink/AppLink';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import { useNavigate } from 'react-router-dom';
+import { NotificationButton } from 'features/notificationButton';
 import cls from './Navbar.module.scss';
 
 interface NavbarProps {
@@ -48,6 +49,7 @@ export const Navbar = memo(({ className }: NavbarProps) => {
       {hasRequiredRole && (
       <AppLink to={RoutePath.admin_panel}>{t('Админ панель')}</AppLink>
       )}
+      <NotificationButton />
       {!authData && (
         <>
           {isOpen && <LoginModal isOpen={isOpen} onClose={onCloseModal} />}

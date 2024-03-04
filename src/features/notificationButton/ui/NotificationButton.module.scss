@@ -1,0 +1,15 @@
+.notificationIcon {
+  width: 26px;
+  height: 26px;
+
+  svg {
+    vertical-align: middle;
+  }
+}
+
+.notifications {
+  width: 400px;
+  min-height: 140px;
+  max-height: 500px;
+  overflow-y: auto;
+}

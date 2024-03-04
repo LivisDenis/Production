@@ -42,7 +42,7 @@ export const Text = memo((props: TextProps) => {
   ];
 
   return (
-    <div className={classNames(cls.title, {}, additional)}>
+    <div className={classNames(cls.Text, {}, additional)}>
       {title && <p data-testid={`${dataTestId}.Title`} className={cls.title}>{title}</p>}
       {subtitle && <p data-testid={`${dataTestId}.Subtitle`} className={cls.subtitle}>{subtitle}</p>}
       {text && <p data-testid={`${dataTestId}.Text`} className={cls.text}>{text}</p>}
