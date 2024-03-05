@@ -13,11 +13,14 @@ const App = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
+    document.body.className = theme;
     dispatch(userActions.initAuthData());
+
+    // eslint-disable-next-line
   }, [dispatch]);
 
   return (
-    <div className={classNames('app', {}, [theme])}>
+    <div className={classNames('app', {}, [])}>
       <Suspense fallback="">
         <div className="wrapper">
           <Sidebar />
