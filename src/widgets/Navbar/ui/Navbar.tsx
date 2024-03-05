@@ -49,14 +49,18 @@ export const Navbar = memo(({ className }: NavbarProps) => {
       {hasRequiredRole && (
       <AppLink to={RoutePath.admin_panel}>{t('Админ панель')}</AppLink>
       )}
-      <NotificationButton />
       {!authData && (
         <>
           {isOpen && <LoginModal isOpen={isOpen} onClose={onCloseModal} />}
           <Button onClick={onOpenModal} theme={ButtonTheme.BACKGROUND}>{t('Войти')}</Button>
         </>
       )}
-      {authData && <Button onClick={onLogout} theme={ButtonTheme.BACKGROUND}>{t('Выйти')}</Button>}
+      {authData && (
+      <>
+        <NotificationButton />
+        <Button onClick={onLogout} theme={ButtonTheme.BACKGROUND}>{t('Выйти')}</Button>
+      </>
+      )}
       <ThemeSwitcher />
       <LangSwitcher />
     </HStack>

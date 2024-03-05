@@ -1,3 +1,9 @@
+.NotificationButton {
+  .notifications {
+    width: 400px;
+  }
+}
+
 .notificationIcon {
   width: 26px;
   height: 26px;
@@ -8,7 +14,7 @@
 }
 
 .notifications {
-  width: 400px;
+  width: 100%;
   min-height: 140px;
   max-height: 500px;
   overflow-y: auto;

@@ -14,10 +14,21 @@ export default {
 
 const Template: ComponentStory<typeof NotificationItem> = (args) => <NotificationItem {...args} />;
 
+const notification = {
+  id: '2',
+  title: 'Уведомление 2',
+  description: 'Произошло какое-то событие',
+  href: 'http://localhost:3000/admin',
+};
+
 export const Normal = Template.bind({});
-Normal.args = {};
+Normal.args = {
+  item: notification,
+};
 Normal.decorators = [StoreDecorator({})];
 
 export const Dark = Template.bind({});
-Dark.args = {};
+Dark.args = {
+  item: notification,
+};
 Dark.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator({})];
