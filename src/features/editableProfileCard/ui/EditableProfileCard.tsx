@@ -1,12 +1,12 @@
 import { useTranslation } from 'react-i18next';
-import { ProfileCard } from 'entities/Profile';
 import { useCallback, useEffect } from 'react';
-import { Currency } from 'entities/CurrencySelect';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useSelector } from 'react-redux';
-import { getAuthData } from 'entities/User';
-import { Text, TextTheme } from 'shared/ui/Text/Text';
-import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader';
+import { ProfileCard } from '@/entities/Profile';
+import { Currency } from '@/entities/CurrencySelect';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { getAuthData } from '@/entities/User';
+import { Text, TextTheme } from '@/shared/ui/Text/Text';
+import { DynamicModuleLoader, ReducersList } from '@/shared/lib/components/DynamicModuleLoader';
 import { ValidateProfileErrors } from '../model/consts/editableProfileCardConsts';
 import { updateProfileData } from '../model/services/updateProfileData/updateProfileData';
 import { getProfileForm } from '../model/selectors/getProfileForm/getProfileForm';

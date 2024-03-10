@@ -1,11 +1,11 @@
 import { screen } from '@testing-library/react';
-import { ComponentRender } from 'shared/lib/tests/componentRender/ComponentRender';
 import { userEvent } from '@testing-library/user-event';
 import { DeepPartial } from '@reduxjs/toolkit';
-import { StateSchema } from 'app/providers/StoreProvider';
-import { Profile } from 'entities/Profile';
-import { Country } from 'shared/const/common';
-import { $api } from 'shared/api/api';
+import { ComponentRender } from '@/shared/lib/tests/componentRender/ComponentRender';
+import { StateSchema } from '@/app/providers/StoreProvider';
+import { Profile } from '@/entities/Profile';
+import { Country } from '@/shared/const/common';
+import { $api } from '@/shared/api/api';
 import { profileReducer } from '../model/slice/profileSlice';
 import { EditableProfileCard } from './EditableProfileCard';
 

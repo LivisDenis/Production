@@ -1,5 +1,5 @@
-import { Country } from 'shared/const/common';
-import { Currency } from 'entities/CurrencySelect';
+import { Country } from '@/shared/const/common';
+import { Currency } from '@/entities/CurrencySelect';
 
 export interface Profile {
     id?: number;

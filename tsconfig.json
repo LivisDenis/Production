@@ -8,7 +8,7 @@
     "baseUrl": ".",
     "strict": true,
     "paths": {
-      "*": ["./src/*"]
+      "@/*": ["./src/*"]
     },
     "allowJs": true,
     "moduleResolution": "node",

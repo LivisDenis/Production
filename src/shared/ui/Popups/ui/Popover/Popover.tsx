@@ -1,6 +1,6 @@
-import { classNames } from 'shared/lib/classNames/classNames';
 import { Popover as HPopover } from '@headlessui/react';
 import { ReactNode } from 'react';
+import { classNames } from '@/shared/lib/classNames/classNames';
 import cls from './Popover.module.scss';
 
 type PanelDirection = 'top right' | 'top left' | 'bottom right' | 'bottom left'

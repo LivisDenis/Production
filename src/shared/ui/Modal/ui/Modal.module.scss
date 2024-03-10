@@ -4,6 +4,9 @@
   z-index: var(--modal-z-index);
   opacity: 0;
   pointer-events: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .overlay {
@@ -20,8 +23,8 @@
   color: var(--main-font-color);
   padding: 20px;
   border-radius: 20px;
-  transition: 0.2s transform;
-  transform: scale(0.5);
+  transition: 0.3s transform;
+  z-index: 200;
   max-width: 430px;
   width: 100%;
 }
@@ -36,6 +39,8 @@
 }
 
 .closing {
+  opacity: 0.1;
+
   .content {
     transform: scale(0.5);
   }

@@ -1,8 +1,8 @@
 import React, { memo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink';
 import { useSelector } from 'react-redux';
-import { getAuthData } from 'entities/User';
+import { AppLink, AppLinkTheme } from '@/shared/ui/AppLink/AppLink';
+import { getAuthData } from '@/entities/User';
 import { SidebarLinkType } from '../../model/types/sidebar';
 import cls from './SidebarLink.module.scss';
 

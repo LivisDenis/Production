@@ -1,6 +1,6 @@
 import { ReactNode } from 'react';
 import { Listbox as ListMenu } from '@headlessui/react';
-import { classNames } from 'shared/lib/classNames/classNames';
+import { classNames } from '@/shared/lib/classNames/classNames';
 import { VStack } from '../../../Stack';
 import cls from './Listbox.module.scss';
 

@@ -1,6 +1,6 @@
-import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
-import { Text, TextAlign } from 'shared/ui/Text/Text';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { Text, TextAlign } from '@/shared/ui/Text/Text';
 import { CommentCard } from '../CommentCard/CommentCard';
 import { CommentCardSkeleton } from '../CommentCard/CommentCardSkeleton';
 import cls from './CommentList.module.scss';

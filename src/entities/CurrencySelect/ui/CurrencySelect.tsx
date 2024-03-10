@@ -1,5 +1,5 @@
-import { classNames } from 'shared/lib/classNames/classNames';
-import { Listbox } from 'shared/ui/Popups';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { Listbox } from '@/shared/ui/Popups';
 import { Currency } from '../model/types/currency';
 
 interface SelectCurrencyProps {
