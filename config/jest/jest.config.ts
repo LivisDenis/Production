@@ -35,7 +35,7 @@ export default {
   ],
   rootDir: '../../',
   moduleNameMapper: {
-    // '^@/(.*)$': '<rootDir>/src/$1',
+    '^@/(.*)$': '<rootDir>/src/$1',
     '\\.s?css$': 'identity-obj-proxy',
     '\\.svg': path.resolve(__dirname, 'jestEmptyComponent.tsx'),
   },

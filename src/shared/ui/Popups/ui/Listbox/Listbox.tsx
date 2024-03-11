@@ -51,13 +51,13 @@ export const Listbox = <T extends string>(props: ListboxProps<T>) => {
                   value={person.value}
                 >
                   {({ active }) => (
-                    <li
+                    <p
                       className={classNames(cls.option, {
                         [cls.activeOption]: active,
                       }, [])}
                     >
                       {person.content}
-                    </li>
+                    </p>
                   )}
                 </ListMenu.Option>
               ))}
