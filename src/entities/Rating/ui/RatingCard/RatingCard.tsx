@@ -1,7 +1,7 @@
-import { useTranslation } from 'react-i18next';
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
+import { BrowserView, MobileView } from 'react-device-detect';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import cls from './RatingCard.module.scss';
 import { StarRating } from '@/shared/ui/StarRating/StarRating';
 import { Card } from '@/shared/ui/Card/Card';
 import { Text, TextAlign } from '@/shared/ui/Text/Text';
@@ -9,6 +9,8 @@ import { Modal } from '@/shared/ui/Modal';
 import { Input } from '@/shared/ui/Input/Input';
 import { Button, ButtonTheme } from '@/shared/ui/Button/Button';
 import { HStack } from '@/shared/ui/Stack';
+import { Drawer } from '@/shared/ui/Drawer/Drawer';
+import cls from './RatingCard.module.scss';
 
 interface RatingCardProps {
     className?: string
@@ -72,23 +74,39 @@ export const RatingCard = (props: RatingCardProps) => {
         onSelectStar={onSelectStars}
         star={starsCount}
       />
-      <Modal isOpen={isOpenModal} onClose={onCloseModal} lazy>
-        <Text align={TextAlign.CENTER} title={feedbackTitle} />
-        <Input
-          value={feedback}
-          onChange={setFeedback}
-          placeholder={t('Оставьте свой отзыв')}
-          className={cls.input}
-        />
-        <HStack justify="end" gap="16">
-          <Button onClick={cancelHandler} theme={ButtonTheme.OUTLINE}>
-            {t('Закрыть')}
-          </Button>
-          <Button onClick={acceptHandler}>
+      <BrowserView>
+        <Modal isOpen={isOpenModal} onClose={onCloseModal} lazy>
+          <Text align={TextAlign.CENTER} title={feedbackTitle} />
+          <Input
+            value={feedback}
+            onChange={setFeedback}
+            placeholder={t('Оставьте свой отзыв')}
+            className={cls.input}
+          />
+          <HStack justify="end" gap="16">
+            <Button onClick={cancelHandler} theme={ButtonTheme.OUTLINE}>
+              {t('Закрыть')}
+            </Button>
+            <Button onClick={acceptHandler}>
+              {t('Отправить')}
+            </Button>
+          </HStack>
+        </Modal>
+      </BrowserView>
+      <MobileView>
+        <Drawer onClose={cancelHandler} isOpen={isOpenModal}>
+          <Text align={TextAlign.CENTER} title={feedbackTitle} />
+          <Input
+            value={feedback}
+            onChange={setFeedback}
+            placeholder={t('Оставьте свой отзыв')}
+            className={cls.input}
+          />
+          <Button max onClick={acceptHandler} className={cls.mobileBtn}>
             {t('Отправить')}
           </Button>
-        </HStack>
-      </Modal>
+        </Drawer>
+      </MobileView>
     </Card>
   );
 };
