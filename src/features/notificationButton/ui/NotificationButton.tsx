@@ -7,6 +7,7 @@ import { NotificationList } from '@/entities/Notification';
 import { Popover } from '@/shared/ui/Popups';
 import { Drawer } from '@/shared/ui/Drawer/Drawer';
 import cls from './NotificationButton.module.scss';
+import { Icon } from '@/shared/ui/Icon/Icon';
 
 interface NotificationButtonProps {
     className?: string
@@ -28,7 +29,7 @@ export const NotificationButton = (props: NotificationButtonProps) => {
 
   const trigger = (
     <Button onClick={onOpenDrawer} className={cls.notificationIcon} theme={ButtonTheme.CLEAR}>
-      <NotificationIcon />
+      <Icon Svg={NotificationIcon} />
     </Button>
   );
 

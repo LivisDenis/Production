@@ -22,5 +22,10 @@
   "Введите текст": "Enter text",
   "Поиск": "Search",
   "Создать статью": "Create article",
-  "У вас нет доступа к этой странице": "You cannot access this page"
+  "У вас нет доступа к этой странице": "You cannot access this page",
+  "Спасибо за оценку!": "Thanks for the review!",
+  "Оставьте свой отзыв": "Give feedback",
+  "Закрыть": "Cancel",
+  "Оцените статью": "Rate this article",
+  "Напишите отзыв": "Write a review"
 }

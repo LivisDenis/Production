@@ -1,3 +1,9 @@
+.StarRating {
+  svg {
+    stroke: var(--star-hover);
+  }
+}
+
 .starHover {
   cursor: pointer;
 }
