@@ -15,9 +15,35 @@ export default {
 const Template: ComponentStory<typeof RatingCard> = (args) => <RatingCard {...args} />;
 
 export const Normal = Template.bind({});
-Normal.args = {};
+Normal.args = {
+  title: 'Оцените статью',
+  feedbackTitle: 'Напишите отзыв',
+  hasFeedback: false,
+  rate: 0,
+};
 Normal.decorators = [StoreDecorator({})];
 
+export const NormalWithRate = Template.bind({});
+NormalWithRate.args = {
+  title: 'Оцените статью',
+  feedbackTitle: 'Напишите отзыв',
+  rate: 5,
+};
+NormalWithRate.decorators = [StoreDecorator({})];
+
+export const NormalWithoutFeedback = Template.bind({});
+NormalWithoutFeedback.args = {
+  title: 'Оцените статью',
+  feedbackTitle: 'Напишите отзыв',
+  hasFeedback: false,
+  rate: 0,
+};
+NormalWithoutFeedback.decorators = [StoreDecorator({})];
+
 export const Dark = Template.bind({});
-Dark.args = {};
+Dark.args = {
+  title: 'Оцените статью',
+  feedbackTitle: 'Напишите отзыв',
+  rate: 0,
+};
 Dark.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator({})];

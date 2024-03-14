@@ -6,7 +6,7 @@ import { HStack } from '../Stack';
 
 interface StarRatingProps {
     className?: string
-    onSelectStar: (star: number) => void
+    onSelectStar?: (star: number) => void
     star?: number
     size?: number
 }
@@ -26,7 +26,7 @@ export const StarRating = (props: StarRatingProps) => {
   const onRatingClick = (starsCount: number) => () => {
     if (!starSelected) {
       setStarSelected(true);
-      onSelectStar(starsCount);
+      onSelectStar?.(starsCount);
       setStarHover(starsCount);
     }
   };
