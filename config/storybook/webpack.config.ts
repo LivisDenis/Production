@@ -30,7 +30,8 @@ export default ({ config }: {config: webpack.Configuration }) => {
   config.module!.rules.push(buildCssLoader(true));
 
   config.resolve!.alias = {
-    '@': path.resolve(__dirname, '..', '..', 'src'),
+    ...config.resolve!.alias,
+    '@': paths.src,
   };
 
   config.plugins!.push(new DefinePlugin({
