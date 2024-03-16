@@ -61,6 +61,7 @@ module.exports = {
     'no-undef': 'off',
     'react/no-array-index-key': 'warn',
     'livis-plugin/path-checker': ['error', { alias: '@' }],
+    'livis-plugin/public-api-import': ['error', { alias: '@' }],
   },
   globals: {
     __IS_DEV__: true,
