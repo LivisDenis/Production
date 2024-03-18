@@ -7,7 +7,6 @@ import { Input } from '@/shared/ui/Input/Input';
 import { Text, TextTheme } from '@/shared/ui/Text/Text';
 import { DynamicModuleLoader, ReducersList } from '@/shared/lib/components/DynamicModuleLoader';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { RoutePath } from '@/shared/config/routeConfig/routeConfig';
 import { loginByUsername } from '../../model/service/loginByUsername';
 import cls from './LoginForm.module.scss';
 import { loginActions, loginReducer } from '../../model/slice/loginSlice';
@@ -15,6 +14,7 @@ import { getLoginUsername } from '../../model/selectors/getLoginUsername/getLogi
 import { getLoginIsLoading } from '../../model/selectors/getLoginIsLoading/getLoginIsLoading';
 import { getLoginError } from '../../model/selectors/getLoginError/getLoginError';
 import { getLoginPassword } from '../../model/selectors/getLoginPassword/getLoginPassword';
+import { RoutePath } from '@/shared/const/router';
 
 export interface LoginFormProps {
     className?: string

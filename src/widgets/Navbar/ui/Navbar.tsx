@@ -12,9 +12,9 @@ import {
 } from '@/entities/User';
 import { HStack } from '@/shared/ui/Stack';
 import { AppLink } from '@/shared/ui/AppLink/AppLink';
-import { RoutePath } from '@/shared/config/routeConfig/routeConfig';
 import { NotificationButton } from '@/features/notificationButton';
 import cls from './Navbar.module.scss';
+import { RoutePath } from '@/shared/const/router';
 
 interface NavbarProps {
     className?: string
