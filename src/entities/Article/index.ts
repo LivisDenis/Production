@@ -6,6 +6,5 @@ export { ArticleList } from './ui/ArticleList/ArticleList';
 export { ArticleViewSelector } from './ui/ArticleViewSelector/ArticleViewSelector';
 export { ArticleSortSelector } from './ui/ArticleSortSelector/ArticleSortSelector';
 export { ArticleTypeTabs } from './ui/ArticleTypeTabs/ArticleTypeTabs';
-export { articleDetailsReducer } from './model/slice/articleDetailsSlice';
 export { fetchArticleById } from './model/services/fetchArticleById/fetchArticleById';
 export { ArticleType, ArticleSortField, ArticleView } from './model/consts/articleConsts';

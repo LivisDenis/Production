@@ -1,14 +1,12 @@
 import { Story } from '@storybook/react';
 import { StateSchema, StoreProvider } from '@/app/providers/StoreProvider';
-// eslint-disable-next-line livis-plugin/public-api-import
-import { loginReducer } from '@/features/AuthByUsername/model/slice/loginSlice';
+import { loginReducer } from '@/features/AuthByUsername/testing';
 import { ReducersList } from '@/shared/lib/components/DynamicModuleLoader';
-import { articleDetailsReducer } from '@/entities/Article';
-import { addCommentFromReducer } from '@/features/addCommentForm';
-import { articlesDetailsPageReducer } from '@/pages/ArticleDetailsPage';
-import { profileReducer } from '@/features/editableProfileCard';
-// eslint-disable-next-line livis-plugin/public-api-import
-import { articlesPageReducer } from '@/pages/ArticlesPage/model/slice/articlesPageSlice';
+import { articleDetailsReducer } from '@/entities/Article/testing';
+import { addCommentFromReducer } from '@/features/addCommentForm/testing';
+import { articlesDetailsPageReducer } from '@/pages/ArticleDetailsPage/testing';
+import { profileReducer } from '@/features/editableProfileCard/testing';
+import { articlesPageReducer } from '@/pages/ArticlesPage/testing';
 
 const defaultAsyncReducers: ReducersList = {
   loginUser: loginReducer,
