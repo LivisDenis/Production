@@ -5,13 +5,13 @@ import { useNavigate } from 'react-router-dom';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { ThemeSwitcher } from '@/shared/ui/ThemeSwitcher';
 import { LangSwitcher } from '@/shared/ui/LangSwitcher';
-import { Button, ButtonTheme } from '@/shared/ui/Button/Button';
+import { Button, ButtonTheme } from '@/shared/ui/Button';
 import { LoginModal } from '@/features/AuthByUsername';
 import {
   getAuthData, isUserAdmin, isUserManager, userActions,
 } from '@/entities/User';
 import { HStack } from '@/shared/ui/Stack';
-import { AppLink } from '@/shared/ui/AppLink/AppLink';
+import { AppLink } from '@/shared/ui/AppLink';
 import { NotificationButton } from '@/features/notificationButton';
 import cls from './Navbar.module.scss';
 import { RoutePath } from '@/shared/const/router';

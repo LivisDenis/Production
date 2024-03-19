@@ -2,7 +2,7 @@ import { memo, useMemo } from 'react';
 import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { AppLink, AppLinkTheme } from '@/shared/ui/AppLink/AppLink';
+import { AppLink, AppLinkTheme } from '@/shared/ui/AppLink';
 import { RoutePath } from '@/shared/const/router';
 import { VStack } from '@/shared/ui/Stack';
 import { getSidebarLinks } from '../../model/selectors/getSidebarLinks';
