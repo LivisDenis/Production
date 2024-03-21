@@ -12,7 +12,7 @@ import type {
   Article, ArticleTextBlock,
 } from '../../model/types/article';
 import cls from './ArticleListItem.module.scss';
-import { RoutePath } from '@/shared/const/router';
+import { getRouteArticleDetails } from '@/shared/const/router';
 
 interface ArticleListItemProps {
     className?: string
@@ -29,8 +29,6 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
     target,
   } = props;
   const { t } = useTranslation();
-
-  const navigatePath = RoutePath.article_details + article.id;
 
   if (view === ArticleView.BIG) {
     const textBlock = article.blocks.find(
@@ -50,7 +48,7 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
         <Text title={article.title} className={cls.title} />
         {textBlock && <ArticleTextBlockComponent block={textBlock} className={cls.textBlock} withoutTitleBlock />}
         <div className={cls.footer}>
-          <AppLink target={target} to={navigatePath}>
+          <AppLink target={target} to={getRouteArticleDetails(article.id)}>
             <Button theme={ButtonTheme.OUTLINE}>{t('Читать далее...')}</Button>
           </AppLink>
           <Text text={String(article.views)} />
@@ -60,7 +58,7 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
   }
 
   return (
-    <AppLink target={target} to={navigatePath}>
+    <AppLink target={target} to={getRouteArticleDetails(article.id)}>
       <Card className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}>
         <img className={cls.image} src={article.img} alt={article.title} />
         <div className={cls.infoWrapper}>

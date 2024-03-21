@@ -14,7 +14,7 @@ import { getLoginUsername } from '../../model/selectors/getLoginUsername/getLogi
 import { getLoginIsLoading } from '../../model/selectors/getLoginIsLoading/getLoginIsLoading';
 import { getLoginError } from '../../model/selectors/getLoginError/getLoginError';
 import { getLoginPassword } from '../../model/selectors/getLoginPassword/getLoginPassword';
-import { RoutePath } from '@/shared/const/router';
+import { getRouteArticles } from '@/shared/const/router';
 
 export interface LoginFormProps {
     className?: string
@@ -45,7 +45,7 @@ const LoginForm = ({ className, onSuccess }: LoginFormProps) => {
     const result = await dispatch(loginByUsername({ username, password }));
     if (result.meta.requestStatus === 'fulfilled') {
       onSuccess();
-      navigate(RoutePath.articles);
+      navigate(getRouteArticles());
     }
   };
 

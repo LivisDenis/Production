@@ -14,7 +14,7 @@ import { HStack } from '@/shared/ui/Stack';
 import { AppLink } from '@/shared/ui/AppLink';
 import { NotificationButton } from '@/features/notificationButton';
 import cls from './Navbar.module.scss';
-import { RoutePath } from '@/shared/const/router';
+import { getRouteAdminPanel, getRouteArticles } from '@/shared/const/router';
 
 interface NavbarProps {
     className?: string
@@ -41,13 +41,13 @@ export const Navbar = memo(({ className }: NavbarProps) => {
 
   const onLogout = () => {
     dispatch(userActions.logout());
-    navigate(RoutePath.articles);
+    navigate(getRouteArticles());
   };
 
   return (
     <HStack gap="16" justify="end" className={classNames(cls.Navbar, {}, [className])}>
       {hasRequiredRole && (
-      <AppLink to={RoutePath.admin_panel}>{t('Админ панель')}</AppLink>
+      <AppLink to={getRouteAdminPanel()}>{t('Админ панель')}</AppLink>
       )}
       {!authData && (
         <>

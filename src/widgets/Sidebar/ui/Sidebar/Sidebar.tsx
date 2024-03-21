@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { AppLink, AppLinkTheme } from '@/shared/ui/AppLink';
-import { RoutePath } from '@/shared/const/router';
+import { getRouteArticleCreate } from '@/shared/const/router';
 import { VStack } from '@/shared/ui/Stack';
 import { getSidebarLinks } from '../../model/selectors/getSidebarLinks';
 import { SidebarLink } from '../SidebarLink/SidebarLink';
@@ -26,7 +26,7 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
       <VStack align="start" gap="8" max>
         {linkList}
       </VStack>
-      <AppLink className={cls.create} theme={AppLinkTheme.PRIMARY} to={RoutePath.article_create}>
+      <AppLink className={cls.create} theme={AppLinkTheme.PRIMARY} to={getRouteArticleCreate()}>
         {t('Создать статью')}
       </AppLink>
     </VStack>
