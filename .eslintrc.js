@@ -23,10 +23,12 @@ module.exports = {
     'i18next',
     'react-hooks',
     'livis-plugin',
+    'unused-imports',
   ],
   rules: {
     'import/extensions': 'off',
     'import/no-unresolved': 'off',
+    'unused-imports/no-unused-imports': 'error',
     'import/prefer-default-export': 'off',
     'react/function-component-definition': 'off',
     'react/require-default-props': 'off',
