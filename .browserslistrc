@@ -1,2 +1,9 @@
-# Browsers that we support
->0.3%, defaults, not dead
+[production]
+>0.3%
+defaults
+not dead
+
+[development]
+last 2 Chrome versions
+last 2 Firefox versions
+last 1 Safari versions
