@@ -13,6 +13,8 @@ import type {
 } from '../../model/types/article';
 import cls from './ArticleListItem.module.scss';
 import { getRouteArticleDetails } from '@/shared/const/router';
+import { AppImage } from '@/shared/ui/AppImage';
+import { Skeleton } from '@/shared/ui/Skeleton';
 
 interface ArticleListItemProps {
     className?: string
@@ -44,7 +46,12 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
           </div>
           <Text text={article.createdAt} />
         </div>
-        <img className={cls.image} src={article.img} alt={article.title} />
+        <AppImage
+          fallback={<Skeleton height={200} width="100%" />}
+          className={cls.image}
+          src={article.img}
+          alt={article.title}
+        />
         <Text title={article.title} className={cls.title} />
         {textBlock && <ArticleTextBlockComponent block={textBlock} className={cls.textBlock} withoutTitleBlock />}
         <div className={cls.footer}>
@@ -60,7 +67,12 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
   return (
     <AppLink target={target} to={getRouteArticleDetails(article.id)}>
       <Card className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}>
-        <img className={cls.image} src={article.img} alt={article.title} />
+        <AppImage
+          fallback={<Skeleton height={153} width="100%" />}
+          className={cls.image}
+          src={article.img}
+          alt={article.title}
+        />
         <div className={cls.infoWrapper}>
           <Text className={cls.types} text={article.type.join(', ')} />
           <Text text={String(article.views)} />
