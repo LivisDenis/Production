@@ -10,14 +10,18 @@ import { getScrollByPath, scrollRestoreActions } from '@/features/scrollRestore'
 import { StateSchema } from '@/app/providers/StoreProvider';
 import { useThrottle } from '@/shared/lib/hooks/useThrottle/useThrottle';
 import cls from './Page.module.scss';
+import { TestProps } from '@/shared/types/test';
 
-interface PageProps {
+interface PageProps extends TestProps {
     className?: string
     children: ReactNode
     onScrollEnd?: () => void
 }
 
-export const Page = ({ className, children, onScrollEnd }: PageProps) => {
+export const Page = (props: PageProps) => {
+  const {
+    className, children, onScrollEnd, ...otherProps
+  } = props;
   const dispatch = useAppDispatch();
   const wrapperRef = useRef() as MutableRefObject<HTMLDivElement>;
   const triggerRef = useRef() as MutableRefObject<HTMLDivElement>;
@@ -43,6 +47,7 @@ export const Page = ({ className, children, onScrollEnd }: PageProps) => {
 
   return (
     <main
+      data-testid={otherProps['data-testid'] ?? 'Page'}
       onScroll={onScroll}
       ref={wrapperRef}
       className={classNames(cls.Page, {}, [className])}
