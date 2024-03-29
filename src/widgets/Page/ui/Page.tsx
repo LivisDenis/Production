@@ -10,7 +10,7 @@ import { getScrollByPath, scrollRestoreActions } from '@/features/scrollRestore'
 import { StateSchema } from '@/app/providers/StoreProvider';
 import { useThrottle } from '@/shared/lib/hooks/useThrottle/useThrottle';
 import cls from './Page.module.scss';
-import { TestProps } from '@/shared/types/test';
+import { TestProps } from '@/shared/types/tests';
 
 interface PageProps extends TestProps {
     className?: string
