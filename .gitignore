@@ -7,7 +7,7 @@
 .pnp.js
 
 /storybook-static
-/reports
+/reports/unit
 
 # production
 /build
