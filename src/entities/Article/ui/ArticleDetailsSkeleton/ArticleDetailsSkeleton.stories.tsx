@@ -1,6 +1,8 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { ThemeDecorator } from '@/shared/config/storybook/decorators/ThemeDecorator';
+
 import { Theme } from '@/app/providers/ThemeProvider';
+import { ThemeDecorator } from '@/shared/config/storybook/decorators/ThemeDecorator';
+
 import { ArticleDetailsSkeleton } from './ArticleDetailsSkeleton';
 
 export default {

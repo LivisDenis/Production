@@ -4,11 +4,7 @@ module.exports = {
     es2021: true,
     jest: true,
   },
-  extends: [
-    'plugin:react/recommended',
-    'airbnb',
-    'plugin:i18next/recommended',
-  ],
+  extends: ['plugin:react/recommended', 'airbnb', 'plugin:i18next/recommended', 'prettier'],
   parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaFeatures: {
@@ -40,7 +36,8 @@ module.exports = {
     'no-underscore-dangle': 'off',
     'react/react-in-jsx-scope': 'off',
     'i18next/no-literal-string': [
-      'error', {
+      'error',
+      {
         markupOnly: true,
         ignoreAttribute: [
           'fillRule',
@@ -67,12 +64,10 @@ module.exports = {
       'error',
       {
         alias: '@',
-        testFilePatterns: [
-          '**/*.test.*',
-          '**/*.stories.*',
-          '**/StoreDecorator.tsx',
-        ],
-      }],
+        testFilePatterns: ['**/*.test.*', '**/*.stories.*', '**/StoreDecorator.tsx'],
+      },
+    ],
+    'react/jsx-max-props-per-line': ['error', { maximum: 1, when: 'multiline' }],
   },
   globals: {
     __IS_DEV__: true,

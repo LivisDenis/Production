@@ -1,9 +1,11 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { ThemeDecorator } from '@/shared/config/storybook/decorators/ThemeDecorator';
+
 import { Theme } from '@/app/providers/ThemeProvider';
-import { StoreDecorator } from '@/shared/config/storybook/decorators/StoreDecorator';
-import { Country } from '@/shared/const/common';
 import { Currency } from '@/entities/CurrencySelect';
+import { StoreDecorator } from '@/shared/config/storybook/decorators/StoreDecorator';
+import { ThemeDecorator } from '@/shared/config/storybook/decorators/ThemeDecorator';
+import { Country } from '@/shared/const/common';
+
 import { EditableProfileCard } from './EditableProfileCard';
 
 export default {
@@ -32,24 +34,29 @@ export const Normal = Template.bind({});
 Normal.args = {
   id: '1',
 };
-Normal.decorators = [StoreDecorator({
-  profile: {
-    form: profile,
-    data: profile,
-    isLoading: false,
-    readonly: true,
-  },
-})];
+Normal.decorators = [
+  StoreDecorator({
+    profile: {
+      form: profile,
+      data: profile,
+      isLoading: false,
+      readonly: true,
+    },
+  }),
+];
 
 export const Dark = Template.bind({});
 Dark.args = {
   id: '1',
 };
-Dark.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator({
-  profile: {
-    form: profile,
-    data: profile,
-    isLoading: false,
-    readonly: true,
-  },
-})];
+Dark.decorators = [
+  ThemeDecorator(Theme.DARK),
+  StoreDecorator({
+    profile: {
+      form: profile,
+      data: profile,
+      isLoading: false,
+      readonly: true,
+    },
+  }),
+];

@@ -1,26 +1,26 @@
-import { useTranslation } from 'react-i18next';
 import { useCallback, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import { ProfileCard } from '@/entities/Profile';
+
 import { Currency } from '@/entities/CurrencySelect';
-import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { ProfileCard } from '@/entities/Profile';
 import { getAuthData } from '@/entities/User';
-import { Text, TextTheme } from '@/shared/ui/Text';
 import { DynamicModuleLoader, ReducersList } from '@/shared/lib/components/DynamicModuleLoader';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { Text, TextTheme } from '@/shared/ui/Text';
+
 import { ValidateProfileErrors } from '../model/consts/editableProfileCardConsts';
-import { updateProfileData } from '../model/services/updateProfileData/updateProfileData';
-import { getProfileForm } from '../model/selectors/getProfileForm/getProfileForm';
-import { getProfileReadonly } from '../model/selectors/getProfileReadonly/getProfileReadonly';
 import { getProfileError } from '../model/selectors/getProfileError/getProfileError';
-import {
-  getProfileValidateErrors,
-} from '../model/selectors/getProfileValidateErrors/getProfileValidateErrors';
+import { getProfileForm } from '../model/selectors/getProfileForm/getProfileForm';
 import { getProfileIsLoading } from '../model/selectors/getProfileIsLoading/getProfileIsLoading';
-import { profileActions, profileReducer } from '../model/slice/profileSlice';
+import { getProfileReadonly } from '../model/selectors/getProfileReadonly/getProfileReadonly';
+import { getProfileValidateErrors } from '../model/selectors/getProfileValidateErrors/getProfileValidateErrors';
 import { fetchProfileData } from '../model/services/fetchProfileData/fetchProfileData';
+import { updateProfileData } from '../model/services/updateProfileData/updateProfileData';
+import { profileActions, profileReducer } from '../model/slice/profileSlice';
 
 interface EditableProfileCardProps {
-    id: string
+  id: string;
 }
 
 const reducers: ReducersList = {
@@ -28,9 +28,7 @@ const reducers: ReducersList = {
 };
 
 export const EditableProfileCard = (props: EditableProfileCardProps) => {
-  const {
-    id,
-  } = props;
+  const { id } = props;
   const { t } = useTranslation('profile');
   const dispatch = useAppDispatch();
   const formData = useSelector(getProfileForm);
@@ -57,33 +55,54 @@ export const EditableProfileCard = (props: EditableProfileCardProps) => {
     }
   }, [dispatch, id]);
 
-  const onChangeUsername = useCallback((value?: string) => {
-    dispatch(profileActions.updateProfile({ username: value || '' }));
-  }, [dispatch]);
+  const onChangeUsername = useCallback(
+    (value?: string) => {
+      dispatch(profileActions.updateProfile({ username: value || '' }));
+    },
+    [dispatch],
+  );
 
-  const onChangeFirstname = useCallback((value?: string) => {
-    dispatch(profileActions.updateProfile({ firstname: value || '' }));
-  }, [dispatch]);
+  const onChangeFirstname = useCallback(
+    (value?: string) => {
+      dispatch(profileActions.updateProfile({ firstname: value || '' }));
+    },
+    [dispatch],
+  );
 
-  const onChangeLastname = useCallback((value?: string) => {
-    dispatch(profileActions.updateProfile({ lastname: value || '' }));
-  }, [dispatch]);
+  const onChangeLastname = useCallback(
+    (value?: string) => {
+      dispatch(profileActions.updateProfile({ lastname: value || '' }));
+    },
+    [dispatch],
+  );
 
-  const onChangeAge = useCallback((value?: string) => {
-    dispatch(profileActions.updateProfile({ age: Number(value?.match(/^\d+$/) || 0) }));
-  }, [dispatch]);
+  const onChangeAge = useCallback(
+    (value?: string) => {
+      dispatch(profileActions.updateProfile({ age: Number(value?.match(/^\d+$/) || 0) }));
+    },
+    [dispatch],
+  );
 
-  const onChangeCity = useCallback((value?: string) => {
-    dispatch(profileActions.updateProfile({ city: value || '' }));
-  }, [dispatch]);
+  const onChangeCity = useCallback(
+    (value?: string) => {
+      dispatch(profileActions.updateProfile({ city: value || '' }));
+    },
+    [dispatch],
+  );
 
-  const onChangeCurrency = useCallback((value?: Currency) => {
-    dispatch(profileActions.updateProfile({ currency: value }));
-  }, [dispatch]);
+  const onChangeCurrency = useCallback(
+    (value?: Currency) => {
+      dispatch(profileActions.updateProfile({ currency: value }));
+    },
+    [dispatch],
+  );
 
-  const onChangeAvatar = useCallback((value?: string) => {
-    dispatch(profileActions.updateProfile({ avatar: value || '' }));
-  }, [dispatch]);
+  const onChangeAvatar = useCallback(
+    (value?: string) => {
+      dispatch(profileActions.updateProfile({ avatar: value || '' }));
+    },
+    [dispatch],
+  );
 
   const onEdit = () => {
     dispatch(profileActions.onEdit(false));
@@ -100,14 +119,15 @@ export const EditableProfileCard = (props: EditableProfileCardProps) => {
   return (
     <DynamicModuleLoader reducers={reducers}>
       <Text title={t('Профиль')} />
-      {validateErrors?.length && validateErrors.map((err) => (
-        <Text
-          key={err}
-          data-testid="EditableProfileCard.Error"
-          theme={TextTheme.ERROR}
-          text={validateErrorsTranslate[err]}
-        />
-      ))}
+      {validateErrors?.length &&
+        validateErrors.map((err) => (
+          <Text
+            key={err}
+            data-testid='EditableProfileCard.Error'
+            theme={TextTheme.ERROR}
+            text={validateErrorsTranslate[err]}
+          />
+        ))}
       <ProfileCard
         data={formData}
         readonly={readonly}

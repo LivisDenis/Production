@@ -1,8 +1,10 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { ThemeDecorator } from '@/shared/config/storybook/decorators/ThemeDecorator';
+
 import { Theme } from '@/app/providers/ThemeProvider';
-import { StoreDecorator } from '@/shared/config/storybook/decorators/StoreDecorator';
 import { Article } from '@/entities/Article';
+import { StoreDecorator } from '@/shared/config/storybook/decorators/StoreDecorator';
+import { ThemeDecorator } from '@/shared/config/storybook/decorators/ThemeDecorator';
+
 import ArticlesPage from './ArticlesPage';
 
 const article = {
@@ -17,9 +19,7 @@ const article = {
     avatar: 'https://wallpapers.com/images/featured/cute-naruto-jtmjd4ifiqi7a48s.jpg',
   },
   createdAt: '12.04.2023',
-  type: [
-    'IT',
-  ],
+  type: ['IT'],
   blocks: [
     {
       id: '1',
@@ -45,26 +45,27 @@ const Template: ComponentStory<typeof ArticlesPage> = () => <ArticlesPage />;
 
 export const Normal = Template.bind({});
 Normal.args = {};
-Normal.decorators = [StoreDecorator({
-  articlesPage: {
-    ids: [
-      '1',
-    ],
-    entities: {
-      1: article,
+Normal.decorators = [
+  StoreDecorator({
+    articlesPage: {
+      ids: ['1'],
+      entities: {
+        1: article,
+      },
     },
-  },
-})];
+  }),
+];
 
 export const Dark = Template.bind({});
 Dark.args = {};
-Dark.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator({
-  articlesPage: {
-    ids: [
-      '1',
-    ],
-    entities: {
-      1: article,
+Dark.decorators = [
+  ThemeDecorator(Theme.DARK),
+  StoreDecorator({
+    articlesPage: {
+      ids: ['1'],
+      entities: {
+        1: article,
+      },
     },
-  },
-})];
+  }),
+];

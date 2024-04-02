@@ -1,13 +1,10 @@
-import {
-  createEntityAdapter,
-  createSlice,
-} from '@reduxjs/toolkit';
-import { Comment } from '@/entities/Comment';
+import { createEntityAdapter, createSlice } from '@reduxjs/toolkit';
+
 import { StateSchema } from '@/app/providers/StoreProvider';
+import { Comment } from '@/entities/Comment';
+
+import { fetchCommentsByArticleId } from '../services/fetchCommentsArticleById/fetchCommentsByArticleId';
 import { ArticleDetailsCommentsSchema } from '../types/articleDetailsCommentsSchema';
-import {
-  fetchCommentsByArticleId,
-} from '../services/fetchCommentsArticleById/fetchCommentsByArticleId';
 
 const initialState: ArticleDetailsCommentsSchema = {
   isLoading: false,
@@ -19,15 +16,14 @@ export const commentsAdapter = createEntityAdapter<Comment>({
   selectId: (comment) => comment.id,
 });
 
-export const getArticleComments = commentsAdapter.getSelectors<StateSchema>((state) => (
-  state.articleDetailsPage?.comments || commentsAdapter.getInitialState()
-));
+export const getArticleComments = commentsAdapter.getSelectors<StateSchema>(
+  (state) => state.articleDetailsPage?.comments || commentsAdapter.getInitialState(),
+);
 
 const articleDetailsCommentsSlice = createSlice({
   name: 'articleDetailsComments',
   initialState: commentsAdapter.getInitialState(initialState),
-  reducers: {
-  },
+  reducers: {},
   extraReducers: (builder) => {
     builder.addCase(fetchCommentsByArticleId.pending, (state) => {
       state.error = undefined;

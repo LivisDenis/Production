@@ -1,9 +1,10 @@
 import { useCallback, useContext } from 'react';
+
 import { LOCAL_STORAGE_CONTEXT_THEME, Theme, ThemeContext } from './ThemeContext';
 
 interface useThemeResult {
-    theme: Theme
-    toggleTheme: () => void
+  theme: Theme;
+  toggleTheme: () => void;
 }
 
 export const useTheme = (): useThemeResult => {

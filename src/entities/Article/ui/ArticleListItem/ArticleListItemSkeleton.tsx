@@ -1,26 +1,24 @@
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { Card } from '@/shared/ui/Card';
 import { Skeleton } from '@/shared/ui/Skeleton';
+
 import { ArticleView } from '../../model/consts/articleConsts';
 import cls from './ArticleListItem.module.scss';
 
 interface ArticleListItemSkeletonProps {
-    className?: string
-    view?: ArticleView
+  className?: string;
+  view?: ArticleView;
 }
 
 export const ArticleListItemSkeleton = (props: ArticleListItemSkeletonProps) => {
-  const {
-    className,
-    view = ArticleView.SMALL,
-  } = props;
+  const { className, view = ArticleView.SMALL } = props;
 
   if (view === ArticleView.BIG) {
     return (
       <Card className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}>
         <div className={cls.infoWrapper}>
           <div className={cls.author}>
-            <Skeleton width={30} height={30} borderRadius="50%" />
+            <Skeleton width={30} height={30} borderRadius='50%' />
             <Skeleton width={90} height={14} />
           </div>
           <Skeleton width={90} height={14} />

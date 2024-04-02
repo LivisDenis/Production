@@ -1,17 +1,22 @@
-import { MainPage } from '@/pages/MainPage';
-import { ProfilePage } from '@/pages/ProfilePage';
+import { UserRoles } from '@/entities/User';
 import { AboutPage } from '@/pages/AboutPage';
-import { ArticlesPage } from '@/pages/ArticlesPage';
+import { AdminPanel } from '@/pages/AdminPanel';
 import { ArticleDetailsPage } from '@/pages/ArticleDetailsPage';
 import { ArticleEditPage } from '@/pages/ArticleEditPage';
-import { AdminPanel } from '@/pages/AdminPanel';
-import { UserRoles } from '@/entities/User';
+import { ArticlesPage } from '@/pages/ArticlesPage';
 import { ForbiddenPage } from '@/pages/ForbiddenPage';
+import { MainPage } from '@/pages/MainPage';
 import { NotFoundPage } from '@/pages/NotFoundPage';
+import { ProfilePage } from '@/pages/ProfilePage';
 import {
   AppRoutes,
-  getRouteAbout, getRouteAdminPanel, getRouteArticleCreate, getRouteArticleDetails, getRouteArticleEdit,
-  getRouteArticles, getRouteForbidden,
+  getRouteAbout,
+  getRouteAdminPanel,
+  getRouteArticleCreate,
+  getRouteArticleDetails,
+  getRouteArticleEdit,
+  getRouteArticles,
+  getRouteForbidden,
   getRouteMain,
   getRouteProfile,
 } from '@/shared/const/router';

@@ -1,7 +1,9 @@
 import { screen } from '@testing-library/react';
-import { ComponentRender } from '@/shared/lib/tests/componentRender/ComponentRender';
-import AppRouter from './AppRouter';
+
 import { getRouteAbout, getRouteAdminPanel, getRouteProfile } from '@/shared/const/router';
+import { ComponentRender } from '@/shared/lib/tests/componentRender/ComponentRender';
+
+import AppRouter from './AppRouter';
 
 describe('app/router/AppRouter', () => {
   test('Компонент должен отрендериться', async () => {

@@ -1,9 +1,11 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { ThemeDecorator } from '@/shared/config/storybook/decorators/ThemeDecorator';
+
 import { Theme } from '@/app/providers/ThemeProvider';
 import { StoreDecorator } from '@/shared/config/storybook/decorators/StoreDecorator';
-import { CommentCard } from './CommentCard';
+import { ThemeDecorator } from '@/shared/config/storybook/decorators/ThemeDecorator';
+
 import { Comment } from '../../model/types/comment';
+import { CommentCard } from './CommentCard';
 
 const comment: Comment = {
   id: 1,

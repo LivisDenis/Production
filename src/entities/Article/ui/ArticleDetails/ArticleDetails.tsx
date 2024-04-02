@@ -1,41 +1,40 @@
-import { useTranslation } from 'react-i18next';
 import { useCallback, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
+
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { DynamicModuleLoader, ReducersList } from '@/shared/lib/components/DynamicModuleLoader';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { Text, TextAlign, TextTheme } from '@/shared/ui/Text';
 import { Avatar } from '@/shared/ui/Avatar';
 import { VStack, HStack } from '@/shared/ui/Stack';
+import { Text, TextAlign, TextTheme } from '@/shared/ui/Text';
+
 import { ArticleBlockType } from '../../model/consts/articleConsts';
 import {
   getArticleDetailsData,
   getArticleDetailsError,
   getArticleDetailsIsLoading,
 } from '../../model/selectors/getArticleDetails/getArticleDetails';
+import { fetchArticleById } from '../../model/services/fetchArticleById/fetchArticleById';
+import { articleDetailsReducer } from '../../model/slice/articleDetailsSlice';
 import type { ArticleBlock } from '../../model/types/article';
 import { ArticleCodeBlockComponent } from '../../ui/ArticleCodeBlockComponent/ArticleCodeBlockComponent';
-import { ArticleTextBlockComponent } from '../../ui/ArticleTextBlockComponent/ArticleTextBlockComponent';
 import { ArticleImageBlockComponent } from '../../ui/ArticleImageBlockComponent/ArticleImageBlockComponent';
-import cls from './ArticleDetails.module.scss';
-import { articleDetailsReducer } from '../../model/slice/articleDetailsSlice';
-import { fetchArticleById } from '../../model/services/fetchArticleById/fetchArticleById';
+import { ArticleTextBlockComponent } from '../../ui/ArticleTextBlockComponent/ArticleTextBlockComponent';
 import { ArticleDetailsSkeleton } from '../ArticleDetailsSkeleton/ArticleDetailsSkeleton';
+import cls from './ArticleDetails.module.scss';
 
 interface ArticleDetailsProps {
-    className?: string
-    id: string
+  className?: string;
+  id: string;
 }
 
-const reducers:ReducersList = {
+const reducers: ReducersList = {
   articleDetails: articleDetailsReducer,
 };
 
 export const ArticleDetails = (props: ArticleDetailsProps) => {
-  const {
-    className,
-    id,
-  } = props;
+  const { className, id } = props;
   const { t } = useTranslation('article-details');
   const dispatch = useAppDispatch();
   const article = useSelector(getArticleDetailsData);
@@ -62,40 +61,30 @@ export const ArticleDetails = (props: ArticleDetailsProps) => {
   }, []);
 
   if (error) {
-    return (
-      <Text
-        title={t('Произошла ошибка при загрузке статьи')}
-        align={TextAlign.CENTER}
-        theme={TextTheme.ERROR}
-      />
-    );
+    return <Text title={t('Произошла ошибка при загрузке статьи')} align={TextAlign.CENTER} theme={TextTheme.ERROR} />;
   }
 
   return (
     <DynamicModuleLoader reducers={reducers}>
-      {isLoading
-        ? <ArticleDetailsSkeleton />
-        : (
-          <div className={classNames(cls.ArticleDetails, {}, [className])}>
-            <Text title={article?.title} subtitle={article?.subtitle} />
-            <HStack justify="between" className={cls.info_block}>
-              <div className={cls.author}>
-                <Avatar size={20} borderRadius="50%" src={article?.user.avatar} />
-                {article?.user.username}
-              </div>
-              <div className={cls.stats}>
-                {/* eslint-disable-next-line i18next/no-literal-string */}
-                <span>{article?.createdAt}</span>
-                ·
-                <span>{`${article?.views} просмотров`}</span>
-              </div>
-            </HStack>
-            <img className={cls.image} src={article?.img} alt={article?.img} />
-            <VStack gap="24">
-              {article?.blocks.map(renderBlock)}
-            </VStack>
-          </div>
-        )}
+      {isLoading ? (
+        <ArticleDetailsSkeleton />
+      ) : (
+        <div className={classNames(cls.ArticleDetails, {}, [className])}>
+          <Text title={article?.title} subtitle={article?.subtitle} />
+          <HStack justify='between' className={cls.info_block}>
+            <div className={cls.author}>
+              <Avatar size={20} borderRadius='50%' src={article?.user.avatar} />
+              {article?.user.username}
+            </div>
+            <div className={cls.stats}>
+              {/* eslint-disable-next-line i18next/no-literal-string */}
+              <span>{article?.createdAt}</span>·<span>{`${article?.views} просмотров`}</span>
+            </div>
+          </HStack>
+          <img className={cls.image} src={article?.img} alt={article?.img} />
+          <VStack gap='24'>{article?.blocks.map(renderBlock)}</VStack>
+        </div>
+      )}
     </DynamicModuleLoader>
   );
 };

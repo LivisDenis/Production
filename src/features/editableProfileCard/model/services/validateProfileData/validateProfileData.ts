@@ -1,16 +1,12 @@
 import { Profile } from '@/entities/Profile';
+
 import { ValidateProfileErrors } from '../../consts/editableProfileCardConsts';
 
 export const validateProfileData = (profile?: Profile): ValidateProfileErrors[] => {
   if (!profile) {
     return [ValidateProfileErrors.NO_DATA];
   }
-  const {
-    firstname,
-    lastname,
-    avatar,
-    city,
-  } = profile;
+  const { firstname, lastname, avatar, city } = profile;
 
   const errors: ValidateProfileErrors[] = [];
 

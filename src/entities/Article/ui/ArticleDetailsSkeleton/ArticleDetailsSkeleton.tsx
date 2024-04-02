@@ -1,14 +1,15 @@
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { Skeleton } from '@/shared/ui/Skeleton';
 import { HStack, VStack } from '@/shared/ui/Stack';
+
 import cls from '../ArticleDetails/ArticleDetails.module.scss';
 
 export const ArticleDetailsSkeleton = () => (
   <div className={classNames(cls.ArticleDetails, {}, [])}>
     <Skeleton height={32} />
-    <HStack justify="between" className={cls.info_block}>
+    <HStack justify='between' className={cls.info_block}>
       <div className={cls.author}>
-        <Skeleton width={20} height={20} borderRadius="50%" />
+        <Skeleton width={20} height={20} borderRadius='50%' />
         <Skeleton height={20} width={60} />
       </div>
       <div className={cls.stats}>
@@ -19,7 +20,7 @@ export const ArticleDetailsSkeleton = () => (
       </div>
     </HStack>
     <Skeleton height={185} className={cls.image} />
-    <VStack gap="24">
+    <VStack gap='24'>
       <Skeleton height={48} />
       <Skeleton height={96} />
       <Skeleton height={288} />

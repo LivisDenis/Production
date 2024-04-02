@@ -1,27 +1,25 @@
-import {
-  MutableRefObject, ReactNode, UIEvent, useEffect, useRef,
-} from 'react';
+import { MutableRefObject, ReactNode, UIEvent, useEffect, useRef } from 'react';
 import { useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom';
-import { classNames } from '@/shared/lib/classNames/classNames';
-import { useInfiniteScroll } from '@/shared/lib/hooks/useInfiniteScroll/useInfiniteScroll';
-import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { getScrollByPath, scrollRestoreActions } from '@/features/scrollRestore';
+
 import { StateSchema } from '@/app/providers/StoreProvider';
+import { getScrollByPath, scrollRestoreActions } from '@/features/scrollRestore';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { useInfiniteScroll } from '@/shared/lib/hooks/useInfiniteScroll/useInfiniteScroll';
 import { useThrottle } from '@/shared/lib/hooks/useThrottle/useThrottle';
-import cls from './Page.module.scss';
 import { TestProps } from '@/shared/types/tests';
 
+import cls from './Page.module.scss';
+
 interface PageProps extends TestProps {
-    className?: string
-    children: ReactNode
-    onScrollEnd?: () => void
+  className?: string;
+  children: ReactNode;
+  onScrollEnd?: () => void;
 }
 
 export const Page = (props: PageProps) => {
-  const {
-    className, children, onScrollEnd, ...otherProps
-  } = props;
+  const { className, children, onScrollEnd, ...otherProps } = props;
   const dispatch = useAppDispatch();
   const wrapperRef = useRef() as MutableRefObject<HTMLDivElement>;
   const triggerRef = useRef() as MutableRefObject<HTMLDivElement>;
@@ -39,10 +37,12 @@ export const Page = (props: PageProps) => {
   }, [scrollPosition]);
 
   const onScroll = useThrottle((e: UIEvent<HTMLDivElement>) => {
-    dispatch(scrollRestoreActions.setScrollPosition({
-      path: pathname,
-      position: e.currentTarget.scrollTop,
-    }));
+    dispatch(
+      scrollRestoreActions.setScrollPosition({
+        path: pathname,
+        position: e.currentTarget.scrollTop,
+      }),
+    );
   }, 500);
 
   return (
@@ -52,9 +52,7 @@ export const Page = (props: PageProps) => {
       ref={wrapperRef}
       className={classNames(cls.Page, {}, [className])}
     >
-      <div className={cls.contentPage}>
-        {children}
-      </div>
+      <div className={cls.contentPage}>{children}</div>
       <div className={cls.trigger} ref={triggerRef} />
     </main>
   );

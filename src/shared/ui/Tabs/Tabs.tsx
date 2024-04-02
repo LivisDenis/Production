@@ -1,26 +1,22 @@
 import { classNames } from '@/shared/lib/classNames/classNames';
+
 import { Card, CardTheme } from '../Card/Card';
 import cls from './Tabs.module.scss';
 
 export interface TabItem<T extends string> {
-    value: T
-    content: string
+  value: T;
+  content: string;
 }
 
 interface TabsProps<T extends string> {
-    className?: string
-    tabs: TabItem<T>[]
-    value: T
-    onClickTab: (tab: T) => void
+  className?: string;
+  tabs: TabItem<T>[];
+  value: T;
+  onClickTab: (tab: T) => void;
 }
 
 export const Tabs = <T extends string>(props: TabsProps<T>) => {
-  const {
-    className,
-    tabs,
-    value,
-    onClickTab,
-  } = props;
+  const { className, tabs, value, onClickTab } = props;
 
   const onChangeTab = (tab: T) => () => onClickTab(tab);
 

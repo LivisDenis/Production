@@ -1,9 +1,9 @@
-import { rtkApi } from '@/shared/api/rtkApi';
 import { Rating } from '@/entities/Rating';
+import { rtkApi } from '@/shared/api/rtkApi';
 
 interface ArticleRatingProps extends Omit<Rating, 'id'> {
-    articleId: string
-    userId: string
+  articleId: string;
+  userId: string;
 }
 
 const articleRatingApi = rtkApi.injectEndpoints({

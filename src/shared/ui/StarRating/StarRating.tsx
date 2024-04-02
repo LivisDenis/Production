@@ -1,25 +1,22 @@
 import { useState } from 'react';
+
 import { classNames } from '@/shared/lib/classNames/classNames';
+
 import StarIcon from '../../assets/icons/icon-star.svg';
-import cls from './StarRating.module.scss';
 import { HStack } from '../Stack';
+import cls from './StarRating.module.scss';
 
 interface StarRatingProps {
-    className?: string
-    onSelectStar?: (star: number) => void
-    star?: number
-    size?: number
+  className?: string;
+  onSelectStar?: (star: number) => void;
+  star?: number;
+  size?: number;
 }
 
 const stars = [1, 2, 3, 4, 5];
 
 export const StarRating = (props: StarRatingProps) => {
-  const {
-    className,
-    size = 30,
-    star = 0,
-    onSelectStar,
-  } = props;
+  const { className, size = 30, star = 0, onSelectStar } = props;
   const [starHover, setStarHover] = useState(star);
   const [starSelected, setStarSelected] = useState(Boolean(star));
 
@@ -44,7 +41,7 @@ export const StarRating = (props: StarRatingProps) => {
   };
 
   return (
-    <HStack gap="0" justify="center" className={classNames(cls.StarRating, {}, [className])}>
+    <HStack gap='0' justify='center' className={classNames(cls.StarRating, {}, [className])}>
       {stars.map((star) => (
         <StarIcon
           key={star}

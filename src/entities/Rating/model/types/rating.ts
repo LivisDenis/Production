@@ -1,5 +1,5 @@
 export interface Rating {
-    id: string,
-    rate: number,
-    feedback?: string,
+  id: string;
+  rate: number;
+  feedback?: string;
 }

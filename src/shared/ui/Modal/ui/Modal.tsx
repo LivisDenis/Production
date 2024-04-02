@@ -1,30 +1,24 @@
-import {
-  ReactNode, useState, MouseEvent, useRef, useEffect, useCallback, MutableRefObject,
-} from 'react';
-import { classNames, Mods } from '@/shared/lib/classNames/classNames';
+import { ReactNode, useState, MouseEvent, useRef, useEffect, useCallback, MutableRefObject } from 'react';
+
 import { useTheme } from '@/app/providers/ThemeProvider';
+import { classNames, Mods } from '@/shared/lib/classNames/classNames';
+
+import { Overlay } from '../../Overlay/Overlay';
 import { Portal } from '../../Portal/Portal';
 import cls from './Modal.module.scss';
-import { Overlay } from '../../Overlay/Overlay';
 
 interface ModalProps {
-    className?: string
-    children: ReactNode
-    onClose?: () => void
-    isOpen?: boolean
-    lazy?: boolean
+  className?: string;
+  children: ReactNode;
+  onClose?: () => void;
+  isOpen?: boolean;
+  lazy?: boolean;
 }
 
 const ANIMATION_DELAY = 150;
 
 export const Modal = (props: ModalProps) => {
-  const {
-    className,
-    children,
-    onClose,
-    isOpen,
-    lazy,
-  } = props;
+  const { className, children, onClose, isOpen, lazy } = props;
   const [isClosing, setIsClosing] = useState(false);
   const [isMounded, setIsMounded] = useState(false);
   const timerRef = useRef() as MutableRefObject<ReturnType<typeof setTimeout>>;
@@ -44,11 +38,14 @@ export const Modal = (props: ModalProps) => {
     }
   }, [onClose]);
 
-  const onKeyDown = useCallback((e: KeyboardEvent) => {
-    if (e.key === 'Escape') {
-      closeHandler();
-    }
-  }, [closeHandler]);
+  const onKeyDown = useCallback(
+    (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        closeHandler();
+      }
+    },
+    [closeHandler],
+  );
 
   useEffect(() => {
     if (isOpen) {

@@ -1,24 +1,23 @@
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import { classNames } from '@/shared/lib/classNames/classNames';
+
 import { RatingCard } from '@/entities/Rating';
-import { useGetArticleRatingsQuery, useArticleRatingMutation } from '../api/articleRatingApi';
 import { getAuthData } from '@/entities/User';
+import { classNames } from '@/shared/lib/classNames/classNames';
 import { Skeleton } from '@/shared/ui/Skeleton';
 
+import { useGetArticleRatingsQuery, useArticleRatingMutation } from '../api/articleRatingApi';
+
 export interface ArticleRatingProps {
-    className?: string
-    articleId: string
+  className?: string;
+  articleId: string;
 }
 
 const ArticleRating = (props: ArticleRatingProps) => {
   const { className, articleId } = props;
   const { t } = useTranslation();
   const userData = useSelector(getAuthData);
-  const {
-    data,
-    isLoading,
-  } = useGetArticleRatingsQuery(articleId);
+  const { data, isLoading } = useGetArticleRatingsQuery(articleId);
   const [rateArticle] = useArticleRatingMutation();
 
   const handleRateArticle = (rate: number, feedback?: string) => {
@@ -51,7 +50,7 @@ const ArticleRating = (props: ArticleRatingProps) => {
   };
 
   if (isLoading) {
-    return <Skeleton height={132} width="100%" />;
+    return <Skeleton height={132} width='100%' />;
   }
 
   const rating = data?.[0];

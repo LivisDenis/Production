@@ -1,13 +1,14 @@
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { Listbox } from '@/shared/ui/Popups';
+
 import { Currency } from '../model/types/currency';
 
 interface SelectCurrencyProps {
-    className?: string
-    label?: string
-    onChange?: (value: Currency) => void
-    value?: Currency
-    readonly?: boolean
+  className?: string;
+  label?: string;
+  onChange?: (value: Currency) => void;
+  value?: Currency;
+  readonly?: boolean;
 }
 
 const options = [
@@ -18,13 +19,7 @@ const options = [
 ];
 
 export const CurrencySelect = (props: SelectCurrencyProps) => {
-  const {
-    className,
-    onChange,
-    readonly,
-    value,
-    label,
-  } = props;
+  const { className, onChange, readonly, value, label } = props;
 
   const onChangeCurrency = (value: Currency) => {
     onChange?.(value);
@@ -38,7 +33,7 @@ export const CurrencySelect = (props: SelectCurrencyProps) => {
       options={options}
       value={value}
       label={label}
-      direction="top"
+      direction='top'
     />
   );
 };

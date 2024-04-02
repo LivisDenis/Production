@@ -2,24 +2,23 @@ import { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { useSearchParams } from 'react-router-dom';
-import { classNames } from '@/shared/lib/classNames/classNames';
+
 import { ArticleList } from '@/entities/Article';
-import { Text } from '@/shared/ui/Text';
-import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { classNames } from '@/shared/lib/classNames/classNames';
 import { DynamicModuleLoader, ReducersList } from '@/shared/lib/components/DynamicModuleLoader';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { Text } from '@/shared/ui/Text';
 import { Page } from '@/widgets/Page';
+
+import { getArticlesPageIsLoading, getArticlesPageView } from '../../model/selectors/articlesPageSelectors';
+import { fetchNextArticlesPage } from '../../model/services/fetchNextArticlesPage/fetchNextArticlesPage';
 import { initArticlesPage } from '../../model/services/initArticlesPage/initArticlesPage';
 import { articlesPageReducer, getArticles } from '../../model/slice/articlesPageSlice';
-import {
-  getArticlesPageIsLoading,
-  getArticlesPageView,
-} from '../../model/selectors/articlesPageSelectors';
-import cls from './ArticlesPage.module.scss';
-import { fetchNextArticlesPage } from '../../model/services/fetchNextArticlesPage/fetchNextArticlesPage';
 import { ArticlesPageFilters } from '../ArticlesPageFilters/ArticlesPageFilters';
+import cls from './ArticlesPage.module.scss';
 
 interface ArticlesPageProps {
-    className?: string
+  className?: string;
 }
 
 const reducers: ReducersList = {
@@ -27,9 +26,7 @@ const reducers: ReducersList = {
 };
 
 const ArticlesPage = (props: ArticlesPageProps) => {
-  const {
-    className,
-  } = props;
+  const { className } = props;
   const { t } = useTranslation();
   const dispatch = useAppDispatch();
   const isLoading = useSelector(getArticlesPageIsLoading);
@@ -55,11 +52,7 @@ const ArticlesPage = (props: ArticlesPageProps) => {
       <Page onScrollEnd={onLoadNextPart} className={classNames(cls.ArticlesPage, {}, [className])}>
         <Text title={t('Статьи')} className={cls.title} />
         <ArticlesPageFilters view={view} />
-        <ArticleList
-          articles={articles}
-          isLoading={isLoading}
-          view={view}
-        />
+        <ArticleList articles={articles} isLoading={isLoading} view={view} />
       </Page>
     </DynamicModuleLoader>
   );

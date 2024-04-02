@@ -1,11 +1,13 @@
+import { DeepPartial } from '@reduxjs/toolkit';
 import { screen } from '@testing-library/react';
 import { userEvent } from '@testing-library/user-event';
-import { DeepPartial } from '@reduxjs/toolkit';
-import { ComponentRender } from '@/shared/lib/tests/componentRender/ComponentRender';
+
 import { StateSchema } from '@/app/providers/StoreProvider';
 import { Profile } from '@/entities/Profile';
-import { Country } from '@/shared/const/common';
 import { $api } from '@/shared/api/api';
+import { Country } from '@/shared/const/common';
+import { ComponentRender } from '@/shared/lib/tests/componentRender/ComponentRender';
+
 import { profileReducer } from '../model/slice/profileSlice';
 import { EditableProfileCard } from './EditableProfileCard';
 
@@ -37,7 +39,7 @@ const options: DeepPartial<StateSchema> = {
 
 describe('features/EditableProfileCard', () => {
   test('readonly mode switching', async () => {
-    ComponentRender(<EditableProfileCard id="1" />, {
+    ComponentRender(<EditableProfileCard id='1' />, {
       initialState: options,
       asyncReducers: {
         profile: profileReducer,
@@ -49,7 +51,7 @@ describe('features/EditableProfileCard', () => {
   });
 
   test('canceling an edit cancels the changes', async () => {
-    ComponentRender(<EditableProfileCard id="1" />, {
+    ComponentRender(<EditableProfileCard id='1' />, {
       initialState: options,
       asyncReducers: {
         profile: profileReducer,
@@ -73,7 +75,7 @@ describe('features/EditableProfileCard', () => {
   });
 
   test('error on save', async () => {
-    ComponentRender(<EditableProfileCard id="1" />, {
+    ComponentRender(<EditableProfileCard id='1' />, {
       initialState: options,
       asyncReducers: {
         profile: profileReducer,
@@ -94,7 +96,7 @@ describe('features/EditableProfileCard', () => {
 
   test('sending a put request after editing', async () => {
     const mockPutRequest = jest.spyOn($api, 'put');
-    ComponentRender(<EditableProfileCard id="1" />, {
+    ComponentRender(<EditableProfileCard id='1' />, {
       initialState: options,
       asyncReducers: {
         profile: profileReducer,

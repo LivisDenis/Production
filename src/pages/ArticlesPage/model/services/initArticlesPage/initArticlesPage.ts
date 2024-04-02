@@ -1,9 +1,11 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
+
 import { ThunkConfig } from '@/app/providers/StoreProvider';
-import { SortOrder } from '@/shared/types/sort';
 import { ArticleSortField, ArticleType } from '@/entities/Article';
-import { fetchArticlesList } from '../../services/fetchArticlesList/fetchArticlesList';
+import { SortOrder } from '@/shared/types/sort';
+
 import { getArticlesPageInited } from '../../selectors/articlesPageSelectors';
+import { fetchArticlesList } from '../../services/fetchArticlesList/fetchArticlesList';
 import { articlesPageActions } from '../../slice/articlesPageSlice';
 
 export const initArticlesPage = createAsyncThunk<void, URLSearchParams, ThunkConfig<string>>(
