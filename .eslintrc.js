@@ -13,14 +13,7 @@ module.exports = {
     ecmaVersion: 'latest',
     sourceType: 'module',
   },
-  plugins: [
-    'react',
-    '@typescript-eslint',
-    'i18next',
-    'react-hooks',
-    'livis-plugin',
-    'unused-imports',
-  ],
+  plugins: ['react', '@typescript-eslint', 'i18next', 'react-hooks', 'livis-plugin', 'unused-imports'],
   rules: {
     'import/extensions': 'off',
     'import/no-unresolved': 'off',
@@ -39,16 +32,7 @@ module.exports = {
       'error',
       {
         markupOnly: true,
-        ignoreAttribute: [
-          'fillRule',
-          'data-testid',
-          'target',
-          'justify',
-          'align',
-          'direction',
-          'gap',
-          'as',
-        ],
+        ignoreAttribute: ['fillRule', 'data-testid', 'target', 'justify', 'align', 'direction', 'gap', 'as'],
       },
     ],
     'max-len': ['error', { code: 140, ignoreComments: true }],
@@ -67,7 +51,6 @@ module.exports = {
         testFilePatterns: ['**/*.test.*', '**/*.stories.*', '**/StoreDecorator.tsx'],
       },
     ],
-    'react/jsx-max-props-per-line': ['error', { maximum: 1, when: 'multiline' }],
   },
   globals: {
     __IS_DEV__: true,
